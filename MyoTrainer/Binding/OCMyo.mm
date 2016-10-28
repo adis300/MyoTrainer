@@ -17,7 +17,7 @@ class DataCollector : public myo::DeviceListener {
     
 public:
     
-    DataCollector() : onArm(false), isUnlocked(false), roll_w(0), pitch_w(0), yaw_w(0), currentPose(), emgSamples() {}
+    DataCollector() : onArm(false), isLocked(true), roll_w(0), pitch_w(0), yaw_w(0), currentPose(), emgSamples() {}
     
     
     // onOrientationData() is called whenever the Myo device provides its current orientation, which is represented as a unit quaternion.
@@ -70,7 +70,7 @@ public:
         roll_w = 0;
         pitch_w = 0;
         onArm = false;
-        isUnlocked = false;
+        isLocked = true;
         std::fill_n(emgSamples, 8, 0);
         
         dispatch_async(dispatch_get_main_queue(), ^(void) {
@@ -189,7 +189,7 @@ public:
     // onLock() is called whenever Myo has become locked. No pose events will be sent until the Myo is unlocked again.
     void onLock(myo::Myo *myo, uint64_t timestamp) {
         
-        isUnlocked = false;
+        isLocked = true;
         
         dispatch_async(dispatch_get_main_queue(), ^(void) {
             // Fire Delegate Method On Main Thread
@@ -202,7 +202,7 @@ public:
     // onUnlock() is called whenever Myo has become unlocked, and will start delivering pose events.
     void onUnlock(myo::Myo *myo, uint64_t timestamp) {
         
-        isUnlocked = true;
+        isLocked = false;
         
         dispatch_async(dispatch_get_main_queue(), ^(void) {
             // Fire Delegate Method On Main Thread
@@ -301,7 +301,7 @@ public:
     myo::Arm whichArm;
     
     // This is set by onUnlocked() and onLocked() above.
-    bool isUnlocked;
+    bool isLocked;
     
     // These values are set by onOrientationData() and onPose() above.
     Myo *_myo;
