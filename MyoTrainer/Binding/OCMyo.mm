@@ -153,35 +153,30 @@ public:
         MyoPose *myoPose = [MyoPose new];
         switch (pose.type()) {
             case myo::Pose::rest:
-                myoPose.poseType = MyoPoseTypeRest;
+                myoPose.poseType = Rest;
                 break;
             case myo::Pose::fist:
-                myoPose.poseType = MyoPoseTypeFist;
+                myoPose.poseType = Fist;
                 break;
             case myo::Pose::waveIn:
-                myoPose.poseType = MyoPoseTypeWaveIn;
+                myoPose.poseType = WaveIn;
                 break;
             case myo::Pose::waveOut:
-                myoPose.poseType = MyoPoseTypeWaveOut;
+                myoPose.poseType = WaveOut;
                 break;
             case myo::Pose::doubleTap:
-                myoPose.poseType = MyoPoseTypeDoubleTap;
+                myoPose.poseType = DoubleTap;
                 break;
             case myo::Pose::fingersSpread:
-                myoPose.poseType = MyoPoseTypeFingersSpread;
+                myoPose.poseType = FingersSpread;
                 break;
             case myo::Pose::unknown:
-                myoPose.poseType = MyoPoseTypeUnknown;
+                myoPose.poseType = Unknown;
                 break;
             default:
-                myoPose.poseType = MyoPoseTypeUnknown;
-
+                myoPose.poseType = Unknown;
                 break;
         }
-        
-
-        if (pose.type() == myo::Pose::unknown)
-            myoPose.poseType = MyoPoseTypeUnknown;
         
         dispatch_async(dispatch_get_main_queue(), ^(void) {
             // Fire Delegate Method On Main Thread
@@ -277,11 +272,11 @@ public:
         
         MyoArm myoArm;
         if (arm == myo::Arm::armLeft) {
-            myoArm = MyoArmLeft;
+            myoArm = ArmLeft;
         } else if (arm == myo::Arm::armRight) {
-            myoArm = MyoArmRight;
+            myoArm = ArmRight;
         } else {
-            myoArm = MyoArmUnknown;
+            myoArm = ArmUnknown;
         }
         return myoArm;
     }
@@ -534,9 +529,9 @@ public:
 
 - (NSString *)getArmDescription:(MyoArm)arm {
     
-    if (arm == MyoArmLeft) {
+    if (arm == ArmLeft) {
         return @"Left Arm";
-    } else if (arm == MyoArmRight) {
+    } else if (arm == ArmRight) {
         return @"Right Arm";
     } else {
         return @"Unknown Arm";
@@ -556,23 +551,25 @@ public:
 
 - (NSString *)poseName:(MyoPose *)pose {
     
-    if (pose.poseType == MyoPoseTypeRest) {
-        return @"Rest";
-    } else if (pose.poseType == MyoPoseTypeFist) {
-        return @"Fist";
-    } else if (pose.poseType == MyoPoseTypeFingersSpread) {
-        return @"Fingers Spread";
-    } else if (pose.poseType == MyoPoseTypeWaveIn) {
-        return @"Wave In";
-    } else if (pose.poseType == MyoPoseTypeWaveOut) {
-        return @"Wave Out";
-    } else if (pose.poseType == MyoPoseTypeDoubleTap) {
-        return @"Double Tap";
-    } else if (pose.poseType == MyoPoseTypeUnknown) {
-        return @"Unrecognized";
-    } else {
-        return @"Unrecognized";
+    switch (pose.poseType) {
+        case Rest:
+            return @"Rest";
+        case Fist:
+            return @"Fist";
+        case WaveIn:
+            return @"WaveIn";
+        case WaveOut:
+            return @"WaveOut";
+        case DoubleTap:
+            return @"DoubleTap";
+        case FingersSpread:
+            return @"FingerSpread";
+        case Unknown:
+            return @"Unrecognized";
+        default:
+            return @"Unrecognized";
     }
+    
 }
 
 @end

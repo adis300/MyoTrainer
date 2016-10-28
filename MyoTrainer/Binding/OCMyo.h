@@ -12,13 +12,13 @@
 
 #pragma mark - MyoPose
 typedef enum MyoPoseType {
-    MyoPoseTypeRest = 0,
-    MyoPoseTypeFist = 1,
-    MyoPoseTypeWaveIn = 2,
-    MyoPoseTypeWaveOut = 3,
-    MyoPoseTypeFingersSpread = 4,
-    MyoPoseTypeDoubleTap = 5,
-    MyoPoseTypeUnknown = 0xffff
+    Rest = 0,
+    Fist = 1,
+    WaveIn = 2,
+    WaveOut = 3,
+    FingersSpread = 4,
+    DoubleTap = 5,
+    Unknown = 0xffff
 } MyoPoseType;
 
 @interface MyoPose : NSObject
@@ -53,9 +53,9 @@ typedef enum MyoPoseType {
 
 #pragma mark - MyoDelegate
 typedef enum MyoArm {
-    MyoArmLeft = 0,
-    MyoArmRight = 1,
-    MyoArmUnknown = 2
+    ArmLeft = 0,
+    ArmRight = 1,
+    ArmUnknown = 2
 } MyoArm;
 
 typedef enum MyoDirection {
