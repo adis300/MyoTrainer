@@ -74,7 +74,7 @@ typedef enum MyoDirection {
 - (void)myoOnDisconnect:(Myo *)myo timestamp:(uint64_t)timestamp;
 - (void)myo:(Myo *)myo onRssi:(int8_t)rssi timestamp:(uint64_t)timestamp;
 - (void)myo:(Myo *)myo onPose:(MyoPose *)pose timestamp:(uint64_t)timestamp;
-- (void)myo:(Myo *)myo onEmgData:(int *)emgData timestamp:(uint64_t)timestamp;
+- (void)myo:(Myo *)myo onEmgData:(int8_t *)emgData timestamp:(uint64_t)timestamp;
 - (void)myoOnPair:(Myo *)myo firmwareVersion:(NSString *)firmware timestamp:(uint64_t)timestamp;
 - (void)myoOnConnect:(Myo *)myo firmwareVersion:(NSString *)firmware timestamp:(uint64_t)timestamp;
 - (void)myo:(Myo *)myo onGyroscopeDataWithVector:(MyoVector *)vector timestamp:(uint64_t)timestamp;
@@ -111,6 +111,7 @@ typedef enum MyoVibrationType {
 #pragma mark - Myo
 @interface Myo : NSObject
 
+- (instancetype)initWithAppIdentifier:(NSString *)identifier updateTime:(int)time;
 - (void)lockMyo;
 - (void)stopUpdate;
 - (void)startUpdate;
@@ -120,13 +121,13 @@ typedef enum MyoVibrationType {
 - (void)showUserNotification; // Causes Small Vibration
 - (NSString *)poseName:(MyoPose *)pose;
 - (void)unlockMyo:(MyoUnlockType)unlockType;
+// Defaults to enableEmg = true
 - (BOOL)connectMyoWaiting:(int)milliseconds;
+- (BOOL)connectMyoWaiting:(int)milliseconds enableEmg:(BOOL)emg;
 - (NSString *)getArmDescription:(MyoArm)arm;
 - (void)vibrateWithType:(MyoVibrationType)type;
 - (void)setMyoLockingPolicy:(MyoLockingPolicy)lockingPolicy;
 - (NSString *)getDirectionDescription:(MyoDirection)direction;
-- (BOOL)connectMyoWaiting:(int)milliseconds enableEmg:(BOOL)emg;
-- (instancetype)initWithApplicationIdentifier:(NSString *)identifier;
 
 @property (nonatomic) int updateTime;
 @property (nonatomic, assign) id <MyoDelegate> delegate;

@@ -7,8 +7,10 @@
 //
 
 #import <myo/myo.hpp>
-
 #import "OCMyo.h"
+
+#define DEFAULT_UPDATE_TIME 100
+
 
 @class Myo;
 
@@ -136,7 +138,7 @@ public:
     void onPose(myo::Myo *myo, uint64_t timestamp, myo::Pose pose) {
         
         currentPose = pose;
-        
+        // TODO: Implement lock stopper for continuous signal gathering.
         if (pose != myo::Pose::unknown && pose != myo::Pose::rest) {
             
             // Tell the Myo to stay unlocked until told otherwise. We do that here so you can hold the poses without the
@@ -254,7 +256,7 @@ public:
     void onEmgData(myo::Myo* myo, uint64_t timestamp, const int8_t* emg)
     {
         for (int i = 0; i < 8; i++) {
-            emgSamples[i] = static_cast<int>(emg[i]);
+            emgSamples[i] = emg[i];// static_cast<int>(emg[i]);
         }
         
         dispatch_async(dispatch_get_main_queue(), ^(void) {
@@ -309,11 +311,10 @@ public:
     float roll_w, pitch_w, yaw_w;
     
     // The values of this array is set by onEmgData() above.
-    int emgSamples[8];
+    int8_t emgSamples[8];
 };
 
 
-#define DEFAULT_UPDATE_TIME 100
 #pragma mark - MYOPOSE
 @implementation MyoPose
 
@@ -395,19 +396,21 @@ public:
     DataCollector collector;
 }
 
-- (instancetype)initWithApplicationIdentifier:(NSString *)identifier {
+- (instancetype)initWithAppIdentifier:(NSString *)identifier updateTime:(int)time{
     
     self = [super init];
     if (self) {
         myo::Hub hub([identifier UTF8String]);
-        self.updateTime = DEFAULT_UPDATE_TIME;
+        // if(time < DEFAULT_UPDATE_TIME) self.updateTime = DEFAULT_UPDATE_TIME;
+        self.updateTime = time;
     }
     return self;
 }
 
+
 - (BOOL)connectMyoWaiting:(int)milliseconds {
     
-    return [self connectMyoWaiting:milliseconds enableEmg:false];
+    return [self connectMyoWaiting:milliseconds enableEmg:true];
 }
 
 - (BOOL)connectMyoWaiting:(int)milliseconds enableEmg:(BOOL)emg {
