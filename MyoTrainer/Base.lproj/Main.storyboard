@@ -684,7 +684,7 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="VisualizerVC" customModule="MyoTrainer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="640" height="640"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="640"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="34S-BU-ryT">
@@ -701,7 +701,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EbQ-wt-HiB">
-                                <rect key="frame" x="514" y="592" width="112" height="32"/>
+                                <rect key="frame" x="898" y="592" width="112" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="b1T-2y-Rts"/>
                                 </constraints>
@@ -750,92 +750,92 @@
                                 </textFieldCell>
                             </textField>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="YnK-AP-j4d" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="268" y="531" width="352" height="60"/>
+                                <rect key="frame" x="268" y="455" width="368" height="136"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="nkJ-T9-Lhd"/>
+                                    <constraint firstAttribute="height" constant="136" id="JAK-wV-H2b"/>
+                                    <constraint firstAttribute="width" constant="368" id="Ktd-eN-CUn"/>
                                 </constraints>
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="Zde-wx-5QT" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="268" y="463" width="352" height="60"/>
+                                <rect key="frame" x="268" y="311" width="368" height="136"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="Tsw-e8-OHn"/>
+                                    <constraint firstAttribute="height" constant="136" id="PYw-8j-m4i"/>
+                                    <constraint firstAttribute="width" constant="368" id="pTF-xC-NZk"/>
                                 </constraints>
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="8uC-LK-bKC" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="268" y="395" width="352" height="60"/>
+                                <rect key="frame" x="268" y="167" width="368" height="136"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="i86-C0-Aql"/>
+                                    <constraint firstAttribute="height" constant="136" id="8Cr-NX-gEP"/>
+                                    <constraint firstAttribute="width" constant="368" id="8b4-jq-gwJ"/>
                                 </constraints>
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="cxN-mV-Ozv" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="268" y="327" width="352" height="60"/>
+                                <rect key="frame" x="268" y="23" width="368" height="136"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="FNx-tb-6A1"/>
+                                    <constraint firstAttribute="width" constant="368" id="IBx-hr-4Dg"/>
+                                    <constraint firstAttribute="height" constant="136" id="tUK-hk-TqU"/>
                                 </constraints>
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="09t-Xa-0gD" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="268" y="259" width="352" height="60"/>
+                                <rect key="frame" x="644" y="455" width="368" height="136"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="sqs-0f-aGD"/>
+                                    <constraint firstAttribute="width" constant="368" id="Yo7-ix-es7"/>
+                                    <constraint firstAttribute="height" constant="136" id="ij2-fl-lLC"/>
                                 </constraints>
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="ypT-gC-2lf" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="268" y="191" width="352" height="60"/>
+                                <rect key="frame" x="644" y="311" width="368" height="136"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="4wt-kJ-2ff"/>
+                                    <constraint firstAttribute="width" constant="368" id="SV8-1v-VNh"/>
+                                    <constraint firstAttribute="height" constant="136" id="XA9-Y8-TOq"/>
                                 </constraints>
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="IYm-zp-udd" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="268" y="123" width="352" height="60"/>
+                                <rect key="frame" x="644" y="167" width="368" height="136"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="VtB-cJ-ddu"/>
+                                    <constraint firstAttribute="height" constant="136" id="CxN-RV-MTN"/>
+                                    <constraint firstAttribute="width" constant="368" id="fwH-Hg-u6I"/>
                                 </constraints>
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="K17-xz-Pbp" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="268" y="55" width="352" height="60"/>
+                                <rect key="frame" x="644" y="23" width="368" height="136"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="6db-Kd-62i"/>
+                                    <constraint firstAttribute="height" constant="136" id="Eth-sS-luC"/>
+                                    <constraint firstAttribute="width" constant="368" id="e3h-iq-FmH"/>
                                 </constraints>
                             </customView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Hsv-4j-s0Q" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="19" id="0Xf-mH-uU6"/>
                             <constraint firstItem="JD2-zI-1r7" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="14X-8p-C7b"/>
-                            <constraint firstItem="K17-xz-Pbp" firstAttribute="leading" secondItem="JD2-zI-1r7" secondAttribute="trailing" constant="8" id="2g3-hm-khn"/>
+                            <constraint firstItem="8uC-LK-bKC" firstAttribute="leading" secondItem="JD2-zI-1r7" secondAttribute="trailing" constant="8" id="3Jw-hF-C5K"/>
                             <constraint firstItem="34S-BU-ryT" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="3aR-66-PiS"/>
-                            <constraint firstItem="Zde-wx-5QT" firstAttribute="leading" secondItem="JD2-zI-1r7" secondAttribute="trailing" constant="8" id="5bz-4U-TyQ"/>
-                            <constraint firstItem="cxN-mV-Ozv" firstAttribute="top" secondItem="8uC-LK-bKC" secondAttribute="bottom" constant="8" id="7of-He-1kl"/>
-                            <constraint firstAttribute="trailing" secondItem="K17-xz-Pbp" secondAttribute="trailing" constant="20" id="7tr-wL-nfY"/>
+                            <constraint firstItem="YnK-AP-j4d" firstAttribute="top" secondItem="Hsv-4j-s0Q" secondAttribute="bottom" constant="8" id="8Ud-2Y-cNb"/>
                             <constraint firstItem="yw9-Pd-FCt" firstAttribute="leading" secondItem="34S-BU-ryT" secondAttribute="trailing" constant="8" id="8d8-Wy-CSt"/>
-                            <constraint firstItem="YnK-AP-j4d" firstAttribute="leading" secondItem="JD2-zI-1r7" secondAttribute="trailing" constant="8" id="9kx-7j-iPO"/>
                             <constraint firstItem="Hsv-4j-s0Q" firstAttribute="leading" secondItem="yw9-Pd-FCt" secondAttribute="trailing" constant="8" id="ARE-dH-LKY"/>
+                            <constraint firstItem="ypT-gC-2lf" firstAttribute="top" secondItem="09t-Xa-0gD" secondAttribute="bottom" constant="8" id="Amx-8r-HOk"/>
+                            <constraint firstItem="YnK-AP-j4d" firstAttribute="leading" secondItem="JD2-zI-1r7" secondAttribute="trailing" constant="8" id="B06-tI-HwT"/>
+                            <constraint firstItem="K17-xz-Pbp" firstAttribute="top" secondItem="IYm-zp-udd" secondAttribute="bottom" constant="8" id="CGe-gl-eAI"/>
                             <constraint firstItem="34S-BU-ryT" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="Dcg-tR-mJB"/>
                             <constraint firstItem="Q1O-Jf-Ql1" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="FU8-qi-ad2"/>
-                            <constraint firstItem="ypT-gC-2lf" firstAttribute="top" secondItem="09t-Xa-0gD" secondAttribute="bottom" constant="8" id="GBb-Rv-qiT"/>
-                            <constraint firstAttribute="trailing" secondItem="ypT-gC-2lf" secondAttribute="trailing" constant="20" id="Nzn-dc-9jn"/>
+                            <constraint firstItem="IYm-zp-udd" firstAttribute="top" secondItem="ypT-gC-2lf" secondAttribute="bottom" constant="8" id="Nnt-jD-WkP"/>
+                            <constraint firstItem="IYm-zp-udd" firstAttribute="leading" secondItem="8uC-LK-bKC" secondAttribute="trailing" constant="8" id="NyS-yh-QQ9"/>
                             <constraint firstItem="JD2-zI-1r7" firstAttribute="top" secondItem="Q1O-Jf-Ql1" secondAttribute="bottom" constant="8" id="RX3-6g-Ni6"/>
-                            <constraint firstItem="09t-Xa-0gD" firstAttribute="leading" secondItem="JD2-zI-1r7" secondAttribute="trailing" constant="8" id="bBP-rv-shZ"/>
-                            <constraint firstItem="ypT-gC-2lf" firstAttribute="leading" secondItem="JD2-zI-1r7" secondAttribute="trailing" constant="8" id="bI3-hI-jE3"/>
+                            <constraint firstItem="K17-xz-Pbp" firstAttribute="leading" secondItem="cxN-mV-Ozv" secondAttribute="trailing" constant="8" id="Stc-FV-o6U"/>
+                            <constraint firstItem="cxN-mV-Ozv" firstAttribute="top" secondItem="8uC-LK-bKC" secondAttribute="bottom" constant="8" id="Tz3-qS-qdQ"/>
                             <constraint firstItem="yw9-Pd-FCt" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="23" id="c26-r8-204"/>
-                            <constraint firstItem="09t-Xa-0gD" firstAttribute="top" secondItem="cxN-mV-Ozv" secondAttribute="bottom" constant="8" id="cKS-FX-l9o"/>
-                            <constraint firstAttribute="trailing" secondItem="cxN-mV-Ozv" secondAttribute="trailing" constant="20" id="dRE-HB-isn"/>
                             <constraint firstItem="EbQ-wt-HiB" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="diz-nM-LCK"/>
-                            <constraint firstItem="cxN-mV-Ozv" firstAttribute="leading" secondItem="JD2-zI-1r7" secondAttribute="trailing" constant="8" id="dkW-L5-dZ5"/>
-                            <constraint firstAttribute="trailing" secondItem="IYm-zp-udd" secondAttribute="trailing" constant="20" id="eSf-Fv-QQK"/>
-                            <constraint firstAttribute="trailing" secondItem="YnK-AP-j4d" secondAttribute="trailing" constant="20" id="eaP-Yh-7TD"/>
-                            <constraint firstItem="8uC-LK-bKC" firstAttribute="leading" secondItem="JD2-zI-1r7" secondAttribute="trailing" constant="8" id="gkk-84-gNQ"/>
-                            <constraint firstItem="YnK-AP-j4d" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="49" id="j2o-vW-bCT"/>
-                            <constraint firstAttribute="trailing" secondItem="8uC-LK-bKC" secondAttribute="trailing" constant="20" id="jsA-4x-s5V"/>
-                            <constraint firstItem="IYm-zp-udd" firstAttribute="top" secondItem="ypT-gC-2lf" secondAttribute="bottom" constant="8" id="ll8-a7-hmz"/>
-                            <constraint firstAttribute="trailing" secondItem="Zde-wx-5QT" secondAttribute="trailing" constant="20" id="mn5-NX-xzt"/>
-                            <constraint firstAttribute="trailing" secondItem="09t-Xa-0gD" secondAttribute="trailing" constant="20" id="nXk-ns-JE8"/>
-                            <constraint firstItem="K17-xz-Pbp" firstAttribute="top" secondItem="IYm-zp-udd" secondAttribute="bottom" constant="8" id="rkd-BY-Fnl"/>
+                            <constraint firstItem="09t-Xa-0gD" firstAttribute="top" secondItem="Hsv-4j-s0Q" secondAttribute="bottom" constant="8" id="fgb-qx-exg"/>
+                            <constraint firstItem="8uC-LK-bKC" firstAttribute="top" secondItem="Zde-wx-5QT" secondAttribute="bottom" constant="8" id="fmA-r4-1Eq"/>
+                            <constraint firstItem="cxN-mV-Ozv" firstAttribute="leading" secondItem="JD2-zI-1r7" secondAttribute="trailing" constant="8" id="ic9-47-cHh"/>
+                            <constraint firstItem="09t-Xa-0gD" firstAttribute="leading" secondItem="YnK-AP-j4d" secondAttribute="trailing" constant="8" id="kWH-VM-wR2"/>
                             <constraint firstAttribute="trailing" secondItem="EbQ-wt-HiB" secondAttribute="trailing" constant="20" id="tx4-3f-RKA"/>
                             <constraint firstItem="Q1O-Jf-Ql1" firstAttribute="top" secondItem="34S-BU-ryT" secondAttribute="bottom" constant="8" id="tyD-k0-kKC"/>
-                            <constraint firstItem="Zde-wx-5QT" firstAttribute="top" secondItem="YnK-AP-j4d" secondAttribute="bottom" constant="8" id="wD0-wz-lKb"/>
+                            <constraint firstItem="ypT-gC-2lf" firstAttribute="leading" secondItem="Zde-wx-5QT" secondAttribute="trailing" constant="8" id="v5o-7X-Q8s"/>
+                            <constraint firstItem="Zde-wx-5QT" firstAttribute="leading" secondItem="JD2-zI-1r7" secondAttribute="trailing" constant="8" id="vy9-sE-Euz"/>
+                            <constraint firstItem="Zde-wx-5QT" firstAttribute="top" secondItem="YnK-AP-j4d" secondAttribute="bottom" constant="8" id="xOi-Vz-HYG"/>
                             <constraint firstItem="Q1O-Jf-Ql1" firstAttribute="top" secondItem="34S-BU-ryT" secondAttribute="bottom" constant="8" id="yaZ-Kp-tkd"/>
-                            <constraint firstItem="IYm-zp-udd" firstAttribute="leading" secondItem="JD2-zI-1r7" secondAttribute="trailing" constant="8" id="yy9-xL-1gY"/>
-                            <constraint firstItem="8uC-LK-bKC" firstAttribute="top" secondItem="Zde-wx-5QT" secondAttribute="bottom" constant="8" id="yzc-gi-j7Y"/>
                         </constraints>
                     </view>
                     <connections>

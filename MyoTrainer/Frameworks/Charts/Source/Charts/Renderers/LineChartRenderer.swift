@@ -583,9 +583,10 @@ open class LineChartRenderer: LineRadarRenderer
         }
     }
     
+    // DISI's change
     open override func drawExtras(context: CGContext)
     {
-        drawCircles(context: context)
+        // drawCircles(context: context)
     }
     
     fileprivate func drawCircles(context: CGContext)

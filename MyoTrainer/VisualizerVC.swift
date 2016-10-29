@@ -32,6 +32,9 @@ class VisualizerVC: NSViewController, MyoDelegate{
     @IBOutlet weak var lineChart7: LineChartView!
     
     var lineCharts:[LineChartView] = []
+    // var lineChartsData :[[ChartDataEntry]] = []
+    var lineChartsDataSet :[ChartDataSet] = []
+    var lineChartsData :[LineChartData] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,21 +65,32 @@ class VisualizerVC: NSViewController, MyoDelegate{
     
     // Data properties
     let emgMagnitudeData = BarChartData()
-    let barDataSerie = BarChartDataSet(values: ([0,0,0,0,0,0,0,0].enumerated().map { x, y  in return BarChartDataEntry(x: Double(x), y: Double(y))}), label: "EMG Magnitude")
+    let barDataSeries = BarChartDataSet(values: ([0,0,0,0,0,0,0,0].enumerated().map { x, y  in return BarChartDataEntry(x: Double(x), y: Double(y))}), label: "EMG Magnitude")
 
     func setUpVisulization(){
         // Magnitude bar chart implementation
-        barDataSerie.colors = [AppTheme.BAR_COLOR]
-        emgMagnitudeData.addDataSet(barDataSerie)
+        barDataSeries.colors = [AppTheme.BAR_COLOR]
+        emgMagnitudeData.addDataSet(barDataSeries)
         
         barChart.data = emgMagnitudeData
         barChart.gridBackgroundColor = NSUIColor.white
         barChart.chartDescription?.text = ""
         
-        // Time serie line chart implementation
+        // Time series line chart implementation
         lineCharts = [lineChart0,lineChart1,lineChart2,lineChart3,lineChart4,lineChart5,lineChart6,lineChart7]
+        
         for (ind, lineChart) in lineCharts.enumerated() {
             
+            let dataSet = LineChartDataSet(values: DataFactory.LINE_CHART_DEFAULT_DATA.map {$0}, label: "Sensor \(ind + 1)")
+            dataSet.colors = [AppTheme.LINE_COLORS[ind]]
+            lineChartsDataSet.append(dataSet)
+            let lineChartData = LineChartData()
+            lineChartData.addDataSet(dataSet)
+            lineChartsData.append(lineChartData)
+            lineChart.data = lineChartData
+            
+            lineChart.gridBackgroundColor = NSUIColor.white
+            lineChart.chartDescription?.text = ""
         }
     }
     
@@ -93,7 +107,7 @@ class VisualizerVC: NSViewController, MyoDelegate{
             skipperCounter = 0
             for (index, magnitude) in emgData.enumerated() {
                 // Use ABS after double
-                barDataSerie.entryForIndex(index)?.y = abs(Double(magnitude))
+                barDataSeries.entryForIndex(index)?.y = abs(Double(magnitude))
             }
             emgMagnitudeData.notifyDataChanged()
             barChart.notifyDataSetChanged()
