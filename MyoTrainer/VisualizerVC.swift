@@ -21,9 +21,18 @@ class VisualizerVC: NSViewController, MyoDelegate{
     @IBOutlet weak var statusLabel: NSTextField!
     @IBOutlet weak var writeToFileCheckBox: NSButton!
     @IBOutlet weak var filePathField: NSTextField!
-    @IBOutlet weak var lineChart0: LineChartView!
     @IBOutlet weak var barChart: BarChartView!
+    @IBOutlet weak var lineChart0: LineChartView!
+    @IBOutlet weak var lineChart1: LineChartView!
+    @IBOutlet weak var lineChart2: LineChartView!
+    @IBOutlet weak var lineChart3: LineChartView!
+    @IBOutlet weak var lineChart4: LineChartView!
+    @IBOutlet weak var lineChart5: LineChartView!
+    @IBOutlet weak var lineChart6: LineChartView!
+    @IBOutlet weak var lineChart7: LineChartView!
     
+    var lineCharts:[LineChartView] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         myo.delegate = self
@@ -56,14 +65,19 @@ class VisualizerVC: NSViewController, MyoDelegate{
     let barDataSerie = BarChartDataSet(values: ([0,0,0,0,0,0,0,0].enumerated().map { x, y  in return BarChartDataEntry(x: Double(x), y: Double(y))}), label: "EMG Magnitude")
 
     func setUpVisulization(){
-        
+        // Magnitude bar chart implementation
         barDataSerie.colors = [AppTheme.BAR_COLOR]
         emgMagnitudeData.addDataSet(barDataSerie)
         
         barChart.data = emgMagnitudeData
         barChart.gridBackgroundColor = NSUIColor.white
         barChart.chartDescription?.text = ""
-
+        
+        // Time serie line chart implementation
+        lineCharts = [lineChart0,lineChart1,lineChart2,lineChart3,lineChart4,lineChart5,lineChart6,lineChart7]
+        for (ind, lineChart) in lineCharts.enumerated() {
+            
+        }
     }
     
     // Utility function implementation

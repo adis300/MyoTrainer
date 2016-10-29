@@ -17,6 +17,8 @@
 		E08902FF1DC3131200C1A190 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E08902FA1DC312B100C1A190 /* Charts.framework */; };
 		E08903001DC3131200C1A190 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E08902FA1DC312B100C1A190 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E08903051DC3143C00C1A190 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08903041DC3143C00C1A190 /* AppTheme.swift */; };
+		E09DAF2E1DC4F2BE00D1023F /* ExtArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09DAF2D1DC4F2BE00D1023F /* ExtArray.swift */; };
+		E09DAF301DC4F3D900D1023F /* DataFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09DAF2F1DC4F3D900D1023F /* DataFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,8 @@
 		E08902F01DC2D60000C1A190 /* OCMyo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OCMyo.mm; sourceTree = "<group>"; };
 		E08902F31DC312B100C1A190 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = "<group>"; };
 		E08903041DC3143C00C1A190 /* AppTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		E09DAF2D1DC4F2BE00D1023F /* ExtArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtArray.swift; sourceTree = "<group>"; };
+		E09DAF2F1DC4F3D900D1023F /* DataFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,7 @@
 		E08902D71DC2D42200C1A190 /* MyoTrainer */ = {
 			isa = PBXGroup;
 			children = (
+				E09DAF2A1DC4F2AC00D1023F /* Utilitiy */,
 				E08903031DC3142E00C1A190 /* Theme */,
 				E08902ED1DC2D5C200C1A190 /* Binding */,
 				E08902E71DC2D43B00C1A190 /* Frameworks */,
@@ -159,6 +164,15 @@
 				E08903041DC3143C00C1A190 /* AppTheme.swift */,
 			);
 			path = Theme;
+			sourceTree = "<group>";
+		};
+		E09DAF2A1DC4F2AC00D1023F /* Utilitiy */ = {
+			isa = PBXGroup;
+			children = (
+				E09DAF2D1DC4F2BE00D1023F /* ExtArray.swift */,
+				E09DAF2F1DC4F3D900D1023F /* DataFactory.swift */,
+			);
+			path = Utilitiy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,7 +280,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E09DAF2E1DC4F2BE00D1023F /* ExtArray.swift in Sources */,
 				E08902F11DC2D60000C1A190 /* OCMyo.mm in Sources */,
+				E09DAF301DC4F3D900D1023F /* DataFactory.swift in Sources */,
 				E08903051DC3143C00C1A190 /* AppTheme.swift in Sources */,
 				E08902DB1DC2D42200C1A190 /* VisualizerVC.swift in Sources */,
 				E08902D91DC2D42200C1A190 /* AppDelegate.swift in Sources */,

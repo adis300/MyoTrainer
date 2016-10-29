@@ -684,11 +684,11 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="VisualizerVC" customModule="MyoTrainer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="640" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="640" height="640"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="34S-BU-ryT">
-                                <rect key="frame" x="14" y="432" width="112" height="32"/>
+                                <rect key="frame" x="14" y="592" width="112" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="WJJ-fs-nDp"/>
                                 </constraints>
@@ -701,7 +701,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EbQ-wt-HiB">
-                                <rect key="frame" x="514" y="432" width="112" height="32"/>
+                                <rect key="frame" x="514" y="592" width="112" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="b1T-2y-Rts"/>
                                 </constraints>
@@ -714,7 +714,7 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Q1O-Jf-Ql1">
-                                <rect key="frame" x="18" y="414" width="104" height="17"/>
+                                <rect key="frame" x="18" y="574" width="104" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="pfk-ny-dUS"/>
                                 </constraints>
@@ -725,21 +725,21 @@
                                 </textFieldCell>
                             </textField>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="JD2-zI-1r7" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="20" y="46" width="240" height="360"/>
+                                <rect key="frame" x="20" y="206" width="240" height="360"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="360" id="aIy-Vk-ZeK"/>
                                     <constraint firstAttribute="width" constant="240" id="hyg-n3-Yb5"/>
                                 </constraints>
                             </customView>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="yw9-Pd-FCt">
-                                <rect key="frame" x="126" y="441" width="92" height="18"/>
+                                <rect key="frame" x="126" y="601" width="92" height="18"/>
                                 <buttonCell key="cell" type="check" title="Write to file" bezelStyle="regularSquare" imagePosition="left" inset="2" id="eCZ-4q-NJT">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Hsv-4j-s0Q">
-                                <rect key="frame" x="224" y="439" width="288" height="22"/>
+                                <rect key="frame" x="224" y="599" width="288" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="288" id="WXV-3c-RLl"/>
                                 </constraints>
@@ -750,29 +750,92 @@
                                 </textFieldCell>
                             </textField>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="YnK-AP-j4d" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="268" y="326" width="352" height="80"/>
+                                <rect key="frame" x="268" y="531" width="352" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="nkJ-T9-Lhd"/>
+                                    <constraint firstAttribute="height" constant="60" id="nkJ-T9-Lhd"/>
+                                </constraints>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Zde-wx-5QT" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="268" y="463" width="352" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Tsw-e8-OHn"/>
+                                </constraints>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="8uC-LK-bKC" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="268" y="395" width="352" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="i86-C0-Aql"/>
+                                </constraints>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="cxN-mV-Ozv" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="268" y="327" width="352" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="FNx-tb-6A1"/>
+                                </constraints>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="09t-Xa-0gD" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="268" y="259" width="352" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="sqs-0f-aGD"/>
+                                </constraints>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="ypT-gC-2lf" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="268" y="191" width="352" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="4wt-kJ-2ff"/>
+                                </constraints>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="IYm-zp-udd" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="268" y="123" width="352" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="VtB-cJ-ddu"/>
+                                </constraints>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="K17-xz-Pbp" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="268" y="55" width="352" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="6db-Kd-62i"/>
                                 </constraints>
                             </customView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Hsv-4j-s0Q" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="19" id="0Xf-mH-uU6"/>
                             <constraint firstItem="JD2-zI-1r7" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="14X-8p-C7b"/>
+                            <constraint firstItem="K17-xz-Pbp" firstAttribute="leading" secondItem="JD2-zI-1r7" secondAttribute="trailing" constant="8" id="2g3-hm-khn"/>
                             <constraint firstItem="34S-BU-ryT" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="3aR-66-PiS"/>
+                            <constraint firstItem="Zde-wx-5QT" firstAttribute="leading" secondItem="JD2-zI-1r7" secondAttribute="trailing" constant="8" id="5bz-4U-TyQ"/>
+                            <constraint firstItem="cxN-mV-Ozv" firstAttribute="top" secondItem="8uC-LK-bKC" secondAttribute="bottom" constant="8" id="7of-He-1kl"/>
+                            <constraint firstAttribute="trailing" secondItem="K17-xz-Pbp" secondAttribute="trailing" constant="20" id="7tr-wL-nfY"/>
                             <constraint firstItem="yw9-Pd-FCt" firstAttribute="leading" secondItem="34S-BU-ryT" secondAttribute="trailing" constant="8" id="8d8-Wy-CSt"/>
                             <constraint firstItem="YnK-AP-j4d" firstAttribute="leading" secondItem="JD2-zI-1r7" secondAttribute="trailing" constant="8" id="9kx-7j-iPO"/>
                             <constraint firstItem="Hsv-4j-s0Q" firstAttribute="leading" secondItem="yw9-Pd-FCt" secondAttribute="trailing" constant="8" id="ARE-dH-LKY"/>
                             <constraint firstItem="34S-BU-ryT" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="Dcg-tR-mJB"/>
                             <constraint firstItem="Q1O-Jf-Ql1" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="FU8-qi-ad2"/>
+                            <constraint firstItem="ypT-gC-2lf" firstAttribute="top" secondItem="09t-Xa-0gD" secondAttribute="bottom" constant="8" id="GBb-Rv-qiT"/>
+                            <constraint firstAttribute="trailing" secondItem="ypT-gC-2lf" secondAttribute="trailing" constant="20" id="Nzn-dc-9jn"/>
                             <constraint firstItem="JD2-zI-1r7" firstAttribute="top" secondItem="Q1O-Jf-Ql1" secondAttribute="bottom" constant="8" id="RX3-6g-Ni6"/>
+                            <constraint firstItem="09t-Xa-0gD" firstAttribute="leading" secondItem="JD2-zI-1r7" secondAttribute="trailing" constant="8" id="bBP-rv-shZ"/>
+                            <constraint firstItem="ypT-gC-2lf" firstAttribute="leading" secondItem="JD2-zI-1r7" secondAttribute="trailing" constant="8" id="bI3-hI-jE3"/>
                             <constraint firstItem="yw9-Pd-FCt" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="23" id="c26-r8-204"/>
+                            <constraint firstItem="09t-Xa-0gD" firstAttribute="top" secondItem="cxN-mV-Ozv" secondAttribute="bottom" constant="8" id="cKS-FX-l9o"/>
+                            <constraint firstAttribute="trailing" secondItem="cxN-mV-Ozv" secondAttribute="trailing" constant="20" id="dRE-HB-isn"/>
                             <constraint firstItem="EbQ-wt-HiB" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="diz-nM-LCK"/>
+                            <constraint firstItem="cxN-mV-Ozv" firstAttribute="leading" secondItem="JD2-zI-1r7" secondAttribute="trailing" constant="8" id="dkW-L5-dZ5"/>
+                            <constraint firstAttribute="trailing" secondItem="IYm-zp-udd" secondAttribute="trailing" constant="20" id="eSf-Fv-QQK"/>
                             <constraint firstAttribute="trailing" secondItem="YnK-AP-j4d" secondAttribute="trailing" constant="20" id="eaP-Yh-7TD"/>
-                            <constraint firstItem="YnK-AP-j4d" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="74" id="j2o-vW-bCT"/>
+                            <constraint firstItem="8uC-LK-bKC" firstAttribute="leading" secondItem="JD2-zI-1r7" secondAttribute="trailing" constant="8" id="gkk-84-gNQ"/>
+                            <constraint firstItem="YnK-AP-j4d" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="49" id="j2o-vW-bCT"/>
+                            <constraint firstAttribute="trailing" secondItem="8uC-LK-bKC" secondAttribute="trailing" constant="20" id="jsA-4x-s5V"/>
+                            <constraint firstItem="IYm-zp-udd" firstAttribute="top" secondItem="ypT-gC-2lf" secondAttribute="bottom" constant="8" id="ll8-a7-hmz"/>
+                            <constraint firstAttribute="trailing" secondItem="Zde-wx-5QT" secondAttribute="trailing" constant="20" id="mn5-NX-xzt"/>
+                            <constraint firstAttribute="trailing" secondItem="09t-Xa-0gD" secondAttribute="trailing" constant="20" id="nXk-ns-JE8"/>
+                            <constraint firstItem="K17-xz-Pbp" firstAttribute="top" secondItem="IYm-zp-udd" secondAttribute="bottom" constant="8" id="rkd-BY-Fnl"/>
                             <constraint firstAttribute="trailing" secondItem="EbQ-wt-HiB" secondAttribute="trailing" constant="20" id="tx4-3f-RKA"/>
                             <constraint firstItem="Q1O-Jf-Ql1" firstAttribute="top" secondItem="34S-BU-ryT" secondAttribute="bottom" constant="8" id="tyD-k0-kKC"/>
+                            <constraint firstItem="Zde-wx-5QT" firstAttribute="top" secondItem="YnK-AP-j4d" secondAttribute="bottom" constant="8" id="wD0-wz-lKb"/>
                             <constraint firstItem="Q1O-Jf-Ql1" firstAttribute="top" secondItem="34S-BU-ryT" secondAttribute="bottom" constant="8" id="yaZ-Kp-tkd"/>
+                            <constraint firstItem="IYm-zp-udd" firstAttribute="leading" secondItem="JD2-zI-1r7" secondAttribute="trailing" constant="8" id="yy9-xL-1gY"/>
+                            <constraint firstItem="8uC-LK-bKC" firstAttribute="top" secondItem="Zde-wx-5QT" secondAttribute="bottom" constant="8" id="yzc-gi-j7Y"/>
                         </constraints>
                     </view>
                     <connections>
@@ -780,6 +843,13 @@
                         <outlet property="connectButton" destination="34S-BU-ryT" id="Jdf-rT-0Q4"/>
                         <outlet property="filePathField" destination="Hsv-4j-s0Q" id="FfP-5H-6eV"/>
                         <outlet property="lineChart0" destination="YnK-AP-j4d" id="5Sv-Gz-TtM"/>
+                        <outlet property="lineChart1" destination="Zde-wx-5QT" id="6vp-P8-CG0"/>
+                        <outlet property="lineChart2" destination="8uC-LK-bKC" id="NB7-Ma-yvm"/>
+                        <outlet property="lineChart3" destination="cxN-mV-Ozv" id="ylg-jd-8OH"/>
+                        <outlet property="lineChart4" destination="09t-Xa-0gD" id="SxY-7R-2e8"/>
+                        <outlet property="lineChart5" destination="ypT-gC-2lf" id="sUL-iD-8LY"/>
+                        <outlet property="lineChart6" destination="IYm-zp-udd" id="FGO-1A-SFg"/>
+                        <outlet property="lineChart7" destination="K17-xz-Pbp" id="jer-mU-C5Y"/>
                         <outlet property="statusLabel" destination="Q1O-Jf-Ql1" id="6F3-ar-qUd"/>
                         <outlet property="writeToFileCheckBox" destination="yw9-Pd-FCt" id="DpE-SE-Q72"/>
                     </connections>
