@@ -17,6 +17,9 @@ class VisualizerVC: NSViewController, MyoDelegate{
     let skipper = 20
     var skipperCounter = 0
     
+    let lineSignalSkipper = 5
+    var lineSignalSkipperCounter = 0
+    
     @IBOutlet weak var connectButton: NSButton!
     @IBOutlet weak var statusLabel: NSTextField!
     @IBOutlet weak var writeToFileCheckBox: NSButton!
@@ -30,11 +33,6 @@ class VisualizerVC: NSViewController, MyoDelegate{
     @IBOutlet weak var lineChart5: LineChartView!
     @IBOutlet weak var lineChart6: LineChartView!
     @IBOutlet weak var lineChart7: LineChartView!
-    
-    var lineCharts:[LineChartView] = []
-    // var lineChartsData :[[ChartDataEntry]] = []
-    var lineChartsDataSet :[ChartDataSet] = []
-    var lineChartsData :[LineChartData] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,10 +60,6 @@ class VisualizerVC: NSViewController, MyoDelegate{
         myo.stopUpdate()
         fileOutputStream?.close()
     }
-    
-    // Data properties
-    let emgMagnitudeData = BarChartData()
-    let barDataSeries = BarChartDataSet(values: ([0,0,0,0,0,0,0,0].enumerated().map { x, y  in return BarChartDataEntry(x: Double(x), y: Double(y))}), label: "EMG Magnitude")
 
     func setUpVisulization(){
         // Magnitude bar chart implementation
@@ -101,22 +95,41 @@ class VisualizerVC: NSViewController, MyoDelegate{
         fileOutputStream?.write(line, maxLength: line.lengthOfBytes(using: String.Encoding.utf8))
     }
     
+    // Data properties
+    let emgMagnitudeData = BarChartData()
+    let barDataSeries = BarChartDataSet(values: ([0,0,0,0,0,0,0,0].enumerated().map { x, y  in return BarChartDataEntry(x: Double(x), y: Double(y))}), label: "EMG Magnitude")
+    
     func plotEmgMagnitudeIndicator(emgData: [Int8]){
         skipperCounter += 1
         if (skipperCounter == skipper){
             skipperCounter = 0
-            for (index, magnitude) in emgData.enumerated() {
+            for (index, emgValue) in emgData.enumerated() {
                 // Use ABS after double
-                barDataSeries.entryForIndex(index)?.y = abs(Double(magnitude))
+                barDataSeries.entryForIndex(index)?.y = abs(Double(emgValue))
             }
             emgMagnitudeData.notifyDataChanged()
             barChart.notifyDataSetChanged()
         }
-        
     }
     
+    var lineCharts:[LineChartView] = []
+    // var lineChartsData :[[ChartDataEntry]] = []
+    var lineChartsDataSet :[ChartDataSet] = []
+    var lineChartsData :[LineChartData] = []
+    
     func plotEmgSignalLineChart(emgData:[Int8]){
-        
+        lineSignalSkipperCounter += 1
+        if (lineSignalSkipperCounter == lineSignalSkipper){
+            lineSignalSkipperCounter = 0
+            for (ind, emgValue) in emgData.enumerated() {
+                //lineCharts
+                _ = lineChartsDataSet[ind].removeFirst()
+                let lastDataEntry = lineChartsDataSet[ind].getLast()!
+                _ = lineChartsDataSet[ind].addEntry(ChartDataEntry(x: lastDataEntry.x + 1, y: Double(emgValue)))
+                lineChartsData[ind].notifyDataChanged()
+                lineCharts[ind].notifyDataSetChanged()
+            }
+        }
     }
     
     // Myo delegate methods
@@ -138,6 +151,7 @@ class VisualizerVC: NSViewController, MyoDelegate{
             writeEmgToFile(emgData: arrayEmgData, timestamp: timestamp)
         }
         plotEmgMagnitudeIndicator(emgData: arrayEmgData)
+        plotEmgSignalLineChart(emgData: arrayEmgData)
         // print(arrayEmgData)
     }
     

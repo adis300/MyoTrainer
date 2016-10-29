@@ -668,7 +668,7 @@
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="640" height="480"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <value key="minSize" type="size" width="640" height="480"/>
+                        <value key="minSize" type="size" width="1024" height="480"/>
                         <value key="maxSize" type="size" width="1024" height="768"/>
                     </window>
                     <connections>
@@ -739,9 +739,9 @@
                                 </buttonCell>
                             </button>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Hsv-4j-s0Q">
-                                <rect key="frame" x="224" y="599" width="288" height="22"/>
+                                <rect key="frame" x="224" y="599" width="600" height="22"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="288" id="WXV-3c-RLl"/>
+                                    <constraint firstAttribute="width" constant="600" id="WXV-3c-RLl"/>
                                 </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="/Users/innovation/Documents/emulator/emg_data.csv" placeholderString="Path" drawsBackground="YES" id="kMM-iO-kSH">
                                     <font key="font" metaFont="system"/>

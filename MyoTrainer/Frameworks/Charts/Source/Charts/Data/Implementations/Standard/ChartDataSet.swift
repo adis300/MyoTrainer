@@ -510,6 +510,11 @@ open class ChartDataSet: ChartBaseDataSet
         return removed
     }
     
+    /// Returns the last Entry (at index size-1) of this DataSet from the entries array.
+    open override func getLast() -> ChartDataEntry? {
+        return _values.isEmpty ? nil: _values.last
+    }
+    
     /// Checks if this DataSet contains the specified Entry.
     /// - returns: `true` if contains the entry, `false` ifnot.
     open override func contains(_ e: ChartDataEntry) -> Bool

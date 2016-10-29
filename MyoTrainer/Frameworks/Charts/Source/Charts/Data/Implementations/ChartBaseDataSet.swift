@@ -173,6 +173,11 @@ open class ChartBaseDataSet: NSObject, IChartDataSet
         return false
     }
     
+    // DISI's change
+    open func getLast() -> ChartDataEntry? {
+        fatalError("getLast is not implemented in ChartBaseDataSet")
+    }
+    
     open func contains(_ e: ChartDataEntry) -> Bool
     {
         fatalError("removeEntry is not implemented in ChartBaseDataSet")
