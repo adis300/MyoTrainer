@@ -14,7 +14,41 @@
 		E08902EA1DC2D44500C1A190 /* myo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E08902E81DC2D43B00C1A190 /* myo.framework */; };
 		E08902EB1DC2D44500C1A190 /* myo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E08902E81DC2D43B00C1A190 /* myo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E08902F11DC2D60000C1A190 /* OCMyo.mm in Sources */ = {isa = PBXBuildFile; fileRef = E08902F01DC2D60000C1A190 /* OCMyo.mm */; };
+		E08902FF1DC3131200C1A190 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E08902FA1DC312B100C1A190 /* Charts.framework */; };
+		E08903001DC3131200C1A190 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E08902FA1DC312B100C1A190 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E08903051DC3143C00C1A190 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08903041DC3143C00C1A190 /* AppTheme.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E08902F91DC312B100C1A190 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E08902F31DC312B100C1A190 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06165F241D8110E600722320;
+			remoteInfo = Charts;
+		};
+		E08902FB1DC312B100C1A190 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E08902F31DC312B100C1A190 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06B120D51D811E6200D14B02;
+			remoteInfo = ChartsRealm;
+		};
+		E08902FD1DC312B100C1A190 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E08902F31DC312B100C1A190 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06165F2E1D8110E600722320;
+			remoteInfo = ChartsTests;
+		};
+		E08903011DC3131200C1A190 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E08902F31DC312B100C1A190 /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 06165F231D8110E600722320;
+			remoteInfo = Charts;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		E08902EC1DC2D44500C1A190 /* Embed Frameworks */ = {
@@ -24,6 +58,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				E08902EB1DC2D44500C1A190 /* myo.framework in Embed Frameworks */,
+				E08903001DC3131200C1A190 /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -41,6 +76,8 @@
 		E08902EE1DC2D60000C1A190 /* MyoTrainer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyoTrainer-Bridging-Header.h"; sourceTree = "<group>"; };
 		E08902EF1DC2D60000C1A190 /* OCMyo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMyo.h; sourceTree = "<group>"; };
 		E08902F01DC2D60000C1A190 /* OCMyo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OCMyo.mm; sourceTree = "<group>"; };
+		E08902F31DC312B100C1A190 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = "<group>"; };
+		E08903041DC3143C00C1A190 /* AppTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +86,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E08902EA1DC2D44500C1A190 /* myo.framework in Frameworks */,
+				E08902FF1DC3131200C1A190 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +112,7 @@
 		E08902D71DC2D42200C1A190 /* MyoTrainer */ = {
 			isa = PBXGroup;
 			children = (
+				E08903031DC3142E00C1A190 /* Theme */,
 				E08902ED1DC2D5C200C1A190 /* Binding */,
 				E08902E71DC2D43B00C1A190 /* Frameworks */,
 				E08902D81DC2D42200C1A190 /* AppDelegate.swift */,
@@ -88,6 +127,7 @@
 		E08902E71DC2D43B00C1A190 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E08902F31DC312B100C1A190 /* Charts.xcodeproj */,
 				E08902E81DC2D43B00C1A190 /* myo.framework */,
 			);
 			path = Frameworks;
@@ -101,6 +141,24 @@
 				E08902EE1DC2D60000C1A190 /* MyoTrainer-Bridging-Header.h */,
 			);
 			path = Binding;
+			sourceTree = "<group>";
+		};
+		E08902F41DC312B100C1A190 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E08902FA1DC312B100C1A190 /* Charts.framework */,
+				E08902FC1DC312B100C1A190 /* ChartsRealm.framework */,
+				E08902FE1DC312B100C1A190 /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E08903031DC3142E00C1A190 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				E08903041DC3143C00C1A190 /* AppTheme.swift */,
+			);
+			path = Theme;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,6 +176,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				E08903021DC3131200C1A190 /* PBXTargetDependency */,
 			);
 			name = MyoTrainer;
 			productName = MyoTrainer;
@@ -153,12 +212,42 @@
 			mainGroup = E08902CC1DC2D42200C1A190;
 			productRefGroup = E08902D61DC2D42200C1A190 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E08902F41DC312B100C1A190 /* Products */;
+					ProjectRef = E08902F31DC312B100C1A190 /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				E08902D41DC2D42200C1A190 /* MyoTrainer */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		E08902FA1DC312B100C1A190 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = E08902F91DC312B100C1A190 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E08902FC1DC312B100C1A190 /* ChartsRealm.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ChartsRealm.framework;
+			remoteRef = E08902FB1DC312B100C1A190 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E08902FE1DC312B100C1A190 /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = E08902FD1DC312B100C1A190 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E08902D31DC2D42200C1A190 /* Resources */ = {
@@ -178,12 +267,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				E08902F11DC2D60000C1A190 /* OCMyo.mm in Sources */,
+				E08903051DC3143C00C1A190 /* AppTheme.swift in Sources */,
 				E08902DB1DC2D42200C1A190 /* VisualizerVC.swift in Sources */,
 				E08902D91DC2D42200C1A190 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E08903021DC3131200C1A190 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Charts;
+			targetProxy = E08903011DC3131200C1A190 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E08902DE1DC2D42200C1A190 /* Main.storyboard */ = {
@@ -290,6 +388,7 @@
 		E08902E51DC2D42200C1A190 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -311,6 +410,7 @@
 		E08902E61DC2D42200C1A190 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -347,6 +447,7 @@
 				E08902E61DC2D42200C1A190 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

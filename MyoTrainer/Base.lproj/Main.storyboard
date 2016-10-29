@@ -687,14 +687,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="640" height="480"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VvH-iv-Otx">
-                                <rect key="frame" x="305" y="231" width="30" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Test" id="Gne-1M-jNS">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="34S-BU-ryT">
                                 <rect key="frame" x="14" y="432" width="112" height="32"/>
                                 <constraints>
@@ -708,6 +700,19 @@
                                     <action selector="connectClick:" target="XfG-lQ-9wD" id="i0G-Hf-bpq"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EbQ-wt-HiB">
+                                <rect key="frame" x="514" y="432" width="112" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="b1T-2y-Rts"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Stop" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FG1-xi-oCZ">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="stopClick:" target="XfG-lQ-9wD" id="ui7-79-UgK"/>
+                                </connections>
+                            </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Q1O-Jf-Ql1">
                                 <rect key="frame" x="18" y="414" width="104" height="17"/>
                                 <constraints>
@@ -719,20 +724,64 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="JD2-zI-1r7" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="46" width="240" height="360"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="360" id="aIy-Vk-ZeK"/>
+                                    <constraint firstAttribute="width" constant="240" id="hyg-n3-Yb5"/>
+                                </constraints>
+                            </customView>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="yw9-Pd-FCt">
+                                <rect key="frame" x="126" y="441" width="92" height="18"/>
+                                <buttonCell key="cell" type="check" title="Write to file" bezelStyle="regularSquare" imagePosition="left" inset="2" id="eCZ-4q-NJT">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Hsv-4j-s0Q">
+                                <rect key="frame" x="224" y="439" width="288" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="288" id="WXV-3c-RLl"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="/Users/innovation/Documents/emulator/emg_data.csv" placeholderString="Path" drawsBackground="YES" id="kMM-iO-kSH">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="YnK-AP-j4d" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="268" y="326" width="352" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="nkJ-T9-Lhd"/>
+                                </constraints>
+                            </customView>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="Hsv-4j-s0Q" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="19" id="0Xf-mH-uU6"/>
+                            <constraint firstItem="JD2-zI-1r7" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="14X-8p-C7b"/>
                             <constraint firstItem="34S-BU-ryT" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="3aR-66-PiS"/>
+                            <constraint firstItem="yw9-Pd-FCt" firstAttribute="leading" secondItem="34S-BU-ryT" secondAttribute="trailing" constant="8" id="8d8-Wy-CSt"/>
+                            <constraint firstItem="YnK-AP-j4d" firstAttribute="leading" secondItem="JD2-zI-1r7" secondAttribute="trailing" constant="8" id="9kx-7j-iPO"/>
+                            <constraint firstItem="Hsv-4j-s0Q" firstAttribute="leading" secondItem="yw9-Pd-FCt" secondAttribute="trailing" constant="8" id="ARE-dH-LKY"/>
                             <constraint firstItem="34S-BU-ryT" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="Dcg-tR-mJB"/>
                             <constraint firstItem="Q1O-Jf-Ql1" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="FU8-qi-ad2"/>
-                            <constraint firstItem="VvH-iv-Otx" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="Hn9-6b-n0F"/>
-                            <constraint firstItem="VvH-iv-Otx" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="oh8-ug-aVE"/>
+                            <constraint firstItem="JD2-zI-1r7" firstAttribute="top" secondItem="Q1O-Jf-Ql1" secondAttribute="bottom" constant="8" id="RX3-6g-Ni6"/>
+                            <constraint firstItem="yw9-Pd-FCt" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="23" id="c26-r8-204"/>
+                            <constraint firstItem="EbQ-wt-HiB" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="diz-nM-LCK"/>
+                            <constraint firstAttribute="trailing" secondItem="YnK-AP-j4d" secondAttribute="trailing" constant="20" id="eaP-Yh-7TD"/>
+                            <constraint firstItem="YnK-AP-j4d" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="74" id="j2o-vW-bCT"/>
+                            <constraint firstAttribute="trailing" secondItem="EbQ-wt-HiB" secondAttribute="trailing" constant="20" id="tx4-3f-RKA"/>
                             <constraint firstItem="Q1O-Jf-Ql1" firstAttribute="top" secondItem="34S-BU-ryT" secondAttribute="bottom" constant="8" id="tyD-k0-kKC"/>
                             <constraint firstItem="Q1O-Jf-Ql1" firstAttribute="top" secondItem="34S-BU-ryT" secondAttribute="bottom" constant="8" id="yaZ-Kp-tkd"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="barChart" destination="JD2-zI-1r7" id="Ct1-q5-2lS"/>
                         <outlet property="connectButton" destination="34S-BU-ryT" id="Jdf-rT-0Q4"/>
+                        <outlet property="filePathField" destination="Hsv-4j-s0Q" id="FfP-5H-6eV"/>
+                        <outlet property="lineChart0" destination="YnK-AP-j4d" id="5Sv-Gz-TtM"/>
                         <outlet property="statusLabel" destination="Q1O-Jf-Ql1" id="6F3-ar-qUd"/>
+                        <outlet property="writeToFileCheckBox" destination="yw9-Pd-FCt" id="DpE-SE-Q72"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
