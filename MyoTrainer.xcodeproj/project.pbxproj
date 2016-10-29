@@ -20,6 +20,7 @@
 		E09DAF2E1DC4F2BE00D1023F /* ExtArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09DAF2D1DC4F2BE00D1023F /* ExtArray.swift */; };
 		E09DAF301DC4F3D900D1023F /* DataFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09DAF2F1DC4F3D900D1023F /* DataFactory.swift */; };
 		E09DAF331DC5413500D1023F /* ActivationIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09DAF321DC5413500D1023F /* ActivationIndicator.swift */; };
+		E09DAF371DC565F300D1023F /* Activation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09DAF361DC565F300D1023F /* Activation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		E09DAF2D1DC4F2BE00D1023F /* ExtArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtArray.swift; sourceTree = "<group>"; };
 		E09DAF2F1DC4F3D900D1023F /* DataFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFactory.swift; sourceTree = "<group>"; };
 		E09DAF321DC5413500D1023F /* ActivationIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivationIndicator.swift; sourceTree = "<group>"; };
+		E09DAF361DC565F300D1023F /* Activation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 		E08902D71DC2D42200C1A190 /* MyoTrainer */ = {
 			isa = PBXGroup;
 			children = (
+				E09DAF351DC565AD00D1023F /* Core */,
 				E09DAF311DC53D1C00D1023F /* UI */,
 				E09DAF2A1DC4F2AC00D1023F /* Utilitiy */,
 				E08903031DC3142E00C1A190 /* Theme */,
@@ -184,6 +187,14 @@
 				E09DAF321DC5413500D1023F /* ActivationIndicator.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		E09DAF351DC565AD00D1023F /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E09DAF361DC565F300D1023F /* Activation.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,6 +307,7 @@
 				E09DAF331DC5413500D1023F /* ActivationIndicator.swift in Sources */,
 				E09DAF301DC4F3D900D1023F /* DataFactory.swift in Sources */,
 				E08903051DC3143C00C1A190 /* AppTheme.swift in Sources */,
+				E09DAF371DC565F300D1023F /* Activation.swift in Sources */,
 				E08902DB1DC2D42200C1A190 /* VisualizerVC.swift in Sources */,
 				E08902D91DC2D42200C1A190 /* AppDelegate.swift in Sources */,
 			);

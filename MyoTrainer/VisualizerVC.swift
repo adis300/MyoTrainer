@@ -34,6 +34,8 @@ class VisualizerVC: NSViewController, MyoDelegate{
     @IBOutlet weak var lineChart6: LineChartView!
     @IBOutlet weak var lineChart7: LineChartView!
 
+    @IBOutlet weak var activationIndicator: ActivationIndicator!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         myo.delegate = self
@@ -94,7 +96,7 @@ class VisualizerVC: NSViewController, MyoDelegate{
         fileOutputStream?.write(line, maxLength: line.lengthOfBytes(using: String.Encoding.utf8))
     }
     
-    // Data properties
+    // Data visualizing methods
     let emgMagnitudeData = BarChartData()
     let barDataSeries = BarChartDataSet(values: ([0,0,0,0,0,0,0,0].enumerated().map { x, y  in return BarChartDataEntry(x: Double(x), y: Double(y))}), label: "EMG Magnitude")
     
@@ -131,6 +133,14 @@ class VisualizerVC: NSViewController, MyoDelegate{
         }
     }
     
+    func plotActivatorState(emgData:[Int8]){
+        if(Activation.activateSimple(emgData: emgData)){
+            activationIndicator.activate()
+        }else{
+            activationIndicator.deactivate()
+        }
+    }
+    
     // Myo delegate methods
     func myo(onConnect myo: Myo!, firmwareVersion firmware: String!, timestamp: UInt64) {
         statusLabel.stringValue = "Connected"
@@ -150,6 +160,7 @@ class VisualizerVC: NSViewController, MyoDelegate{
         }
         plotEmgMagnitudeIndicator(emgData: arrayEmgData)
         plotEmgSignalLineChart(emgData: arrayEmgData)
+        plotActivatorState(emgData: arrayEmgData)
         // print(arrayEmgData)
     }
     

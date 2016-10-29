@@ -858,6 +858,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activationIndicator" destination="4Qz-U9-6o1" id="RKl-DQ-clb"/>
                         <outlet property="barChart" destination="JD2-zI-1r7" id="Ct1-q5-2lS"/>
                         <outlet property="filePathField" destination="Hsv-4j-s0Q" id="FfP-5H-6eV"/>
                         <outlet property="lineChart0" destination="YnK-AP-j4d" id="5Sv-Gz-TtM"/>
