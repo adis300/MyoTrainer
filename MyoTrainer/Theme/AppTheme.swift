@@ -73,4 +73,9 @@ class AppTheme{
         NSColor(calibratedRed: 96/255, green: 125/255, blue: 139/255, alpha: 1),      // BlueGrey rgb(96, 125, 139)
     ]
     
+    static let ACTIVATION_COLORS = [
+        NSColor(calibratedRed: 244/255, green: 67/255, blue: 54/255, alpha: 1), // Red rgb(244, 67, 54)
+        NSColor(calibratedRed: 76/255, green: 175/255, blue: 80/255, alpha: 1) // Green rgb(76, 175, 80),
+    ]
+    
 }

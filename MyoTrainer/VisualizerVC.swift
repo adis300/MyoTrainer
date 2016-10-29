@@ -20,7 +20,7 @@ class VisualizerVC: NSViewController, MyoDelegate{
     let lineSignalSkipper = 5
     var lineSignalSkipperCounter = 0
     
-    @IBOutlet weak var connectButton: NSButton!
+    @IBOutlet weak var startButton: NSButton!
     @IBOutlet weak var statusLabel: NSTextField!
     @IBOutlet weak var writeToFileCheckBox: NSButton!
     @IBOutlet weak var filePathField: NSTextField!
@@ -47,7 +47,7 @@ class VisualizerVC: NSViewController, MyoDelegate{
     }
     */
 
-    @IBAction func connectClick(_ sender: AnyObject) {
+    @IBAction func startClick(_ sender: AnyObject) {
         // Read teh file path
         if(filePathField.stringValue.characters.count > 0){
             fileOutputStream = OutputStream(toFileAtPath: filePathField.stringValue, append: true)
@@ -74,7 +74,6 @@ class VisualizerVC: NSViewController, MyoDelegate{
         lineCharts = [lineChart0,lineChart1,lineChart2,lineChart3,lineChart4,lineChart5,lineChart6,lineChart7]
         
         for (ind, lineChart) in lineCharts.enumerated() {
-            
             let dataSet = LineChartDataSet(values: DataFactory.LINE_CHART_DEFAULT_DATA.map {$0}, label: "Sensor \(ind + 1)")
             dataSet.colors = [AppTheme.LINE_COLORS[ind]]
             lineChartsDataSet.append(dataSet)
@@ -133,15 +132,14 @@ class VisualizerVC: NSViewController, MyoDelegate{
     }
     
     // Myo delegate methods
-    
     func myo(onConnect myo: Myo!, firmwareVersion firmware: String!, timestamp: UInt64) {
         statusLabel.stringValue = "Connected"
-        connectButton.isEnabled = false
+        startButton.isEnabled = false
     }
     
     func myo(onDisconnect myo: Myo!, timestamp: UInt64) {
         statusLabel.stringValue = "Disconnected"
-        connectButton.isEnabled = true
+        startButton.isEnabled = true
     }
     
     func myo(_ myo: Myo!, onEmgData emgData: UnsafeMutablePointer<Int8>!, timestamp: UInt64) {

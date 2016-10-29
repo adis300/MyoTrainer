@@ -8,8 +8,11 @@
 
 import Foundation
 
+// Currently unused
+/*
 extension Array {
     func shiftRight(newElement: Element) -> [Element] {
         return Array(self[1 ..< count] + [newElement])
     }
 }
+ */
