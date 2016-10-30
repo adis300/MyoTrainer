@@ -18,10 +18,18 @@ class Filter{
     
     static func initializeFilter(){
         for _ in 0..<8{
-            window.append(DataFactory.zeros(amount: 10))
+            window.append(DataFactory.zeros(amount: WINDOW_SIZE))
         }
     }
     
+    // IMPORTANT: filter must be called after Filter is initialized!
+    static func filter(emgData:[Int32]){
+        for (ind, data) in emgData.enumerated(){
+            let absData = abs(data)
+            filtered[ind]  = filtered[ind] - window[ind].first! + absData
+            window[ind] = window[ind].shiftRight(newElement: absData)
+        }
+    }
     
     
 }

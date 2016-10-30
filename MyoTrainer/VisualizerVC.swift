@@ -11,7 +11,7 @@ import Charts
 
 class VisualizerVC: NSViewController, MyoDelegate{
 
-    var myo:Myo = Myo.init(appIdentifier: "com.votebin.brainco", updateTime: 50)  // Blocking UI update every 50ms
+    var myo:Myo?
     var fileOutputStream:OutputStream?
     
     let skipper = 20
@@ -33,13 +33,14 @@ class VisualizerVC: NSViewController, MyoDelegate{
     @IBOutlet weak var lineChart5: LineChartView!
     @IBOutlet weak var lineChart6: LineChartView!
     @IBOutlet weak var lineChart7: LineChartView!
+    @IBOutlet weak var filteredMagnitudeBarChart: BarChartView!
 
     @IBOutlet weak var activationIndicator: ActivationIndicator!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        myo.delegate = self
         setUpVisulization()
+        initializeData()
     }
     /*
     override var representedObject: Any? {
@@ -48,25 +49,35 @@ class VisualizerVC: NSViewController, MyoDelegate{
         }
     }
     */
+    
+    func initializeData(){
+        Filter.initializeFilter()
+    }
 
     @IBAction func startClick(_ sender: AnyObject) {
+        myo = Myo.init(appIdentifier: "com.votebin.brainco", updateTime: 50)  // Blocking UI update every 50ms
+        myo?.delegate = self
+
         // Read teh file path
         if(filePathField.stringValue.characters.count > 0){
             fileOutputStream = OutputStream(toFileAtPath: filePathField.stringValue, append: true)
             fileOutputStream?.open()
         }
-        myo.connectWaiting(3000)
-        myo.startUpdate();
+        myo?.connectWaiting(3000)
+        myo?.startUpdate();
     }
     @IBAction func stopClick(_ sender: AnyObject) {
-        myo.stopUpdate()
+        myo?.stopUpdate()
         fileOutputStream?.close()
     }
 
     func setUpVisulization(){
+        
         // Magnitude bar chart implementation
-        barDataSeries.colors = [AppTheme.BAR_COLOR]
-        emgMagnitudeData.addDataSet(barDataSeries)
+        emgMagnitudeDataSet.colors = [AppTheme.BAR_COLORS[0]]
+        emgFilteredMagnitudeDataSet.colors = [AppTheme.BAR_COLORS[1]]
+        emgMagnitudeData.addDataSet(emgMagnitudeDataSet)
+        emgMagnitudeData.addDataSet(emgFilteredMagnitudeDataSet)
         
         barChart.data = emgMagnitudeData
         barChart.gridBackgroundColor = NSUIColor.white
@@ -98,15 +109,41 @@ class VisualizerVC: NSViewController, MyoDelegate{
     
     // Data visualizing methods
     let emgMagnitudeData = BarChartData()
-    let barDataSeries = BarChartDataSet(values: ([0,0,0,0,0,0,0,0].enumerated().map { x, y  in return BarChartDataEntry(x: Double(x), y: Double(y))}), label: "EMG Magnitude")
+    let emgMagnitudeDataSet = BarChartDataSet(values: ([0,0,0,0,0,0,0,0].enumerated().map { x, y  in return BarChartDataEntry(x: Double(x), y: Double(y))}), label: "EMG Mag")
+    
+    let emgFilteredMagnitudeDataSet = BarChartDataSet(values: (Filter.filtered.enumerated().map { x, y  in return BarChartDataEntry(x: Double(x), y: Double(y))}), label: "EMG Filtered Mag")
     
     func plotEmgMagnitudeIndicator(emgData: [Int32]){
         skipperCounter += 1
         if (skipperCounter == skipper){
             skipperCounter = 0
+            
+            // NOTE: One extra loop involved here in filtering outside of loo[
+            Filter.filter(emgData: emgData)
+            
             for (index, emgValue) in emgData.enumerated() {
                 // Use ABS after double
-                barDataSeries.entryForIndex(index)?.y = abs(Double(emgValue))
+                emgMagnitudeDataSet.entryForIndex(index)?.y = abs(Double(emgValue))
+                emgFilteredMagnitudeDataSet.entryForIndex(index)?.y = Double(Filter.filtered[index])/8
+            }
+            
+            emgFilteredMagnitudeDataSet.notifyDataSetChanged()
+            // emgMagnitudeData.notifyDataChanged()
+            emgMagnitudeDataSet.notifyDataSetChanged()
+            barChart.notifyDataSetChanged()
+        }
+    }
+    
+    
+    
+    func plotFilteredEmgMagnitudeIndicator(emgData: [Int32]){
+        skipperCounter += 1
+        if (skipperCounter == skipper){
+            skipperCounter = 0
+            for (index, emgValue) in emgData.enumerated() {
+                // Use ABS after double
+                emgMagnitudeDataSet.entryForIndex(index)?.y = abs(Double(emgValue))
+                emgFilteredMagnitudeDataSet.clear()
             }
             emgMagnitudeData.notifyDataChanged()
             barChart.notifyDataSetChanged()

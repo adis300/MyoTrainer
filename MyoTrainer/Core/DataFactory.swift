@@ -23,11 +23,12 @@ class DataFactory{
     }
     */
     
+    /*
     static func zeros(amount:Int) -> [Int]{
         return (0..<amount).map{_ in 0}
-    }
+    }*/
     
-    static func zeros(amount:Int32) -> [Int32]{
+    static func zeros(amount:Int) -> [Int32]{
         return (0..<amount).map{_ in 0}
     }
     

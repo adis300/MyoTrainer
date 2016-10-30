@@ -9,7 +9,7 @@
 import Cocoa
 
 class AppTheme{
-    
+    /*
     static let BAR_COLORS = [
         
         // Redish colors
@@ -38,11 +38,12 @@ class AppTheme{
         NSColor(calibratedRed: 121/255, green: 85/255, blue: 72/255, alpha: 1), // Brown rgb(121, 85, 72)
         // UIColor(red: 158/255, green: 158/255, blue: 158/255, alpha: 1),  //Grey rgb(158, 158, 158)
         NSColor(calibratedRed: 96/255, green: 125/255, blue: 139/255, alpha: 1),      // BlueGrey rgb(96, 125, 139)
+    ]*/
+    
+    static let BAR_COLORS = [
+        NSColor(calibratedRed: 63/255, green: 81/255, blue: 181/255, alpha: 1), // Indigo rgb(63, 81, 181)
+        NSColor(calibratedRed: 0/255, green: 188/255, blue: 212/255, alpha: 1),  //Cyan rgb(0, 188, 212)
     ]
-    
-    static let BAR_COLOR = NSColor(calibratedRed: 63/255, green: 81/255, blue: 181/255, alpha: 1) // Indigo rgb(63, 81, 181)
-
-    
     static let LINE_COLORS = [
         
         // Redish colors
