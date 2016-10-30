@@ -17,7 +17,7 @@ class VisualizerVC: NSViewController, MyoDelegate{
     let skipper = 20
     var skipperCounter = 0
     
-    let lineSignalSkipper = 5
+    let lineSignalSkipper = 10
     var lineSignalSkipperCounter = 0
     
     @IBOutlet weak var startButton: NSButton!
@@ -33,7 +33,6 @@ class VisualizerVC: NSViewController, MyoDelegate{
     @IBOutlet weak var lineChart5: LineChartView!
     @IBOutlet weak var lineChart6: LineChartView!
     @IBOutlet weak var lineChart7: LineChartView!
-    @IBOutlet weak var filteredMagnitudeBarChart: BarChartView!
 
     @IBOutlet weak var activationIndicator: ActivationIndicator!
     

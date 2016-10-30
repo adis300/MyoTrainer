@@ -10,7 +10,7 @@ import Foundation
 
 class Activation{
     
-    static let SIMPLE_ACTIVATION_THRESHOLD: Int32 = 80
+    static let SIMPLE_ACTIVATION_THRESHOLD: Int32 = 60
     
     static let ACITVATION_WEIGHTS:[Double] = [5,7,7,2,1,1,2,5].map{$0/30}
     // Defines the filtered center for each
