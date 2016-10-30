@@ -10,7 +10,9 @@ import Foundation
 
 class Filter{
     
-    static var WINDOW_SIZE = 10
+    static var WINDOW_SIZE = 60
+    static var WINDOW_SIZE_DOUBLE = Double(WINDOW_SIZE)
+    static var WINDOW_SIZE_INT32 = Int32(WINDOW_SIZE)
     
     static var window:[[Int32]] = []
     
@@ -30,6 +32,5 @@ class Filter{
             window[ind] = window[ind].shiftRight(newElement: absData)
         }
     }
-    
     
 }

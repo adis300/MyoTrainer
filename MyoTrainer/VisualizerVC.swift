@@ -117,14 +117,11 @@ class VisualizerVC: NSViewController, MyoDelegate{
         skipperCounter += 1
         if (skipperCounter == skipper){
             skipperCounter = 0
-            
-            // NOTE: One extra loop involved here in filtering outside of loo[
-            Filter.filter(emgData: emgData)
-            
+
             for (index, emgValue) in emgData.enumerated() {
                 // Use ABS after double
                 emgMagnitudeDataSet.entryForIndex(index)?.y = abs(Double(emgValue))
-                emgFilteredMagnitudeDataSet.entryForIndex(index)?.y = Double(Filter.filtered[index])/8
+                emgFilteredMagnitudeDataSet.entryForIndex(index)?.y = Double(Filter.filtered[index])/Filter.WINDOW_SIZE_DOUBLE
             }
             
             emgFilteredMagnitudeDataSet.notifyDataSetChanged()
@@ -133,23 +130,7 @@ class VisualizerVC: NSViewController, MyoDelegate{
             barChart.notifyDataSetChanged()
         }
     }
-    
-    
-    
-    func plotFilteredEmgMagnitudeIndicator(emgData: [Int32]){
-        skipperCounter += 1
-        if (skipperCounter == skipper){
-            skipperCounter = 0
-            for (index, emgValue) in emgData.enumerated() {
-                // Use ABS after double
-                emgMagnitudeDataSet.entryForIndex(index)?.y = abs(Double(emgValue))
-                emgFilteredMagnitudeDataSet.clear()
-            }
-            emgMagnitudeData.notifyDataChanged()
-            barChart.notifyDataSetChanged()
-        }
-    }
-    
+
     var lineCharts:[LineChartView] = []
     // var lineChartsData :[[ChartDataEntry]] = []
     var lineChartsDataSet :[ChartDataSet] = []
@@ -170,7 +151,15 @@ class VisualizerVC: NSViewController, MyoDelegate{
         }
     }
     
-    func plotActivatorState(emgData:[Int32]){
+    func plotNNLogisticActivatorState(filtered:[Int32]){
+        if(Activation.logisticStepForFilteredEmg(filteredEmg: filtered)){
+            activationIndicator.activate()
+        }else{
+            activationIndicator.deactivate()
+        }
+    }
+    
+    func plotSimpleActivatorState(emgData:[Int32]){
         if(Activation.activateSimple(emgData: emgData)){
             activationIndicator.activate()
         }else{
@@ -195,9 +184,14 @@ class VisualizerVC: NSViewController, MyoDelegate{
         if(writeToFileCheckBox.state == NSOnState){
             writeEmgToFile(emgData: arrayEmgData, timestamp: timestamp)
         }
+        
+        // NOTE: One extra loop involved here in filtering outside of loo[
+        Filter.filter(emgData: arrayEmgData)
+        
         plotEmgMagnitudeIndicator(emgData: arrayEmgData)
         plotEmgSignalLineChart(emgData: arrayEmgData)
-        plotActivatorState(emgData: arrayEmgData)
+        // plotSimpleActivatorState(emgData: arrayEmgData)
+        plotNNLogisticActivatorState(filtered: Filter.filtered)
     }
     
     
