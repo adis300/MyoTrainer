@@ -21,6 +21,7 @@
 		E09DAF301DC4F3D900D1023F /* DataFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09DAF2F1DC4F3D900D1023F /* DataFactory.swift */; };
 		E09DAF331DC5413500D1023F /* ActivationIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09DAF321DC5413500D1023F /* ActivationIndicator.swift */; };
 		E09DAF371DC565F300D1023F /* Activation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09DAF361DC565F300D1023F /* Activation.swift */; };
+		E09DAF391DC57A3C00D1023F /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09DAF381DC57A3C00D1023F /* Filter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		E09DAF2F1DC4F3D900D1023F /* DataFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFactory.swift; sourceTree = "<group>"; };
 		E09DAF321DC5413500D1023F /* ActivationIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivationIndicator.swift; sourceTree = "<group>"; };
 		E09DAF361DC565F300D1023F /* Activation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activation.swift; sourceTree = "<group>"; };
+		E09DAF381DC57A3C00D1023F /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				E09DAF361DC565F300D1023F /* Activation.swift */,
+				E09DAF381DC57A3C00D1023F /* Filter.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				E08903051DC3143C00C1A190 /* AppTheme.swift in Sources */,
 				E09DAF371DC565F300D1023F /* Activation.swift in Sources */,
 				E08902DB1DC2D42200C1A190 /* VisualizerVC.swift in Sources */,
+				E09DAF391DC57A3C00D1023F /* Filter.swift in Sources */,
 				E08902D91DC2D42200C1A190 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
