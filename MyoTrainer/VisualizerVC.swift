@@ -91,7 +91,7 @@ class VisualizerVC: NSViewController, MyoDelegate{
     
     // Utility function implementation
     
-    func writeEmgToFile(emgData: [Int8], timestamp: UInt64){
+    func writeEmgToFile(emgData: [Int32], timestamp: UInt64){
         let line = "\(emgData[0]),\(emgData[1]),\(emgData[2]),\(emgData[3]),\(emgData[4]),\(emgData[5]),\(emgData[6]),\(emgData[7]),\(timestamp)\n"
         fileOutputStream?.write(line, maxLength: line.lengthOfBytes(using: String.Encoding.utf8))
     }
@@ -100,7 +100,7 @@ class VisualizerVC: NSViewController, MyoDelegate{
     let emgMagnitudeData = BarChartData()
     let barDataSeries = BarChartDataSet(values: ([0,0,0,0,0,0,0,0].enumerated().map { x, y  in return BarChartDataEntry(x: Double(x), y: Double(y))}), label: "EMG Magnitude")
     
-    func plotEmgMagnitudeIndicator(emgData: [Int8]){
+    func plotEmgMagnitudeIndicator(emgData: [Int32]){
         skipperCounter += 1
         if (skipperCounter == skipper){
             skipperCounter = 0
@@ -118,7 +118,7 @@ class VisualizerVC: NSViewController, MyoDelegate{
     var lineChartsDataSet :[ChartDataSet] = []
     var lineChartsData :[LineChartData] = []
     
-    func plotEmgSignalLineChart(emgData:[Int8]){
+    func plotEmgSignalLineChart(emgData:[Int32]){
         lineSignalSkipperCounter += 1
         if (lineSignalSkipperCounter == lineSignalSkipper){
             lineSignalSkipperCounter = 0
@@ -133,7 +133,7 @@ class VisualizerVC: NSViewController, MyoDelegate{
         }
     }
     
-    func plotActivatorState(emgData:[Int8]){
+    func plotActivatorState(emgData:[Int32]){
         if(Activation.activateSimple(emgData: emgData)){
             activationIndicator.activate()
         }else{
@@ -152,7 +152,7 @@ class VisualizerVC: NSViewController, MyoDelegate{
         startButton.isEnabled = true
     }
     
-    func myo(_ myo: Myo!, onEmgData emgData: UnsafeMutablePointer<Int8>!, timestamp: UInt64) {
+    func myo(_ myo: Myo!, onEmgData emgData: UnsafeMutablePointer<Int32>!, timestamp: UInt64) {
         let arrayEmgData = Array(UnsafeBufferPointer(start: emgData, count: 8))
         // Before applying filter
         if(writeToFileCheckBox.state == NSOnState){
@@ -161,7 +161,6 @@ class VisualizerVC: NSViewController, MyoDelegate{
         plotEmgMagnitudeIndicator(emgData: arrayEmgData)
         plotEmgSignalLineChart(emgData: arrayEmgData)
         plotActivatorState(emgData: arrayEmgData)
-        // print(arrayEmgData)
     }
     
     

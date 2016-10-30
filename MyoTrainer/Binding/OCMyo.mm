@@ -256,7 +256,7 @@ public:
     void onEmgData(myo::Myo* myo, uint64_t timestamp, const int8_t* emg)
     {
         for (int i = 0; i < 8; i++) {
-            emgSamples[i] = emg[i];// static_cast<int>(emg[i]);
+            emgSamples[i] = static_cast<int>(emg[i]);
         }
         
         dispatch_async(dispatch_get_main_queue(), ^(void) {
@@ -311,7 +311,7 @@ public:
     float roll_w, pitch_w, yaw_w;
     
     // The values of this array is set by onEmgData() above.
-    int8_t emgSamples[8];
+    int emgSamples[8];
 };
 
 
