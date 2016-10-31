@@ -16,9 +16,11 @@ class Activation{
     // Defines the filtered center for each
     static let ACITVATION_CENTERS:[Double] = [6,5,3,5,3,3,3,3].map{$0 * Filter.WINDOW_SIZE_DOUBLE}
     
-    static let ACITVATION_STEEPNESS:[Double] = [3,3,3,3,1,1,1,3]
+    static let ACITVATION_STEEPNESS:[Double] = [1,0.8,0.8,1,1,1,1,1]
 
-    static let NN_1L_THRESHOLD = 0.5 // *1
+    static let NN_1L_THRESHOLD = 0.4 // *1
+    
+    static let QUADRATIC_FILTERED_THRESHOLD:Int32 = 17 * 17
     
     static func activateSimple(emgData:[Int32]) -> Bool{
         
@@ -39,5 +41,10 @@ class Activation{
             // return val
         }
         return activationSignal.reduce(0, +) > NN_1L_THRESHOLD
+    }
+    
+    static func quadraticFilteredActivation(filteredEmg: [Int32]) -> Bool{
+        let activationValue = filteredEmg.map{$0/Filter.WINDOW_SIZE_INT32}.reduce(0,{$0 + $1*$1})
+        return activationValue > QUADRATIC_FILTERED_THRESHOLD
     }
 }

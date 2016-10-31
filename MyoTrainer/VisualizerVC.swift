@@ -150,6 +150,14 @@ class VisualizerVC: NSViewController, MyoDelegate{
         }
     }
     
+    func plotQuadraticFilteredActivatorState(filtered:[Int32]){
+        if(Activation.quadraticFilteredActivation(filteredEmg: filtered)){
+            activationIndicator.activate()
+        }else{
+            activationIndicator.deactivate()
+        }
+    }
+    
     func plotNNLogisticActivatorState(filtered:[Int32]){
         if(Activation.logisticStepForFilteredEmg(filteredEmg: filtered)){
             activationIndicator.activate()
@@ -190,7 +198,8 @@ class VisualizerVC: NSViewController, MyoDelegate{
         plotEmgMagnitudeIndicator(emgData: arrayEmgData)
         plotEmgSignalLineChart(emgData: arrayEmgData)
         // plotSimpleActivatorState(emgData: arrayEmgData)
-        plotNNLogisticActivatorState(filtered: Filter.filtered)
+        // plotNNLogisticActivatorState(filtered: Filter.filtered)
+        plotQuadraticFilteredActivatorState(filtered: Filter.filtered)
     }
     
     
