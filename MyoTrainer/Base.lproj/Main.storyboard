@@ -725,9 +725,9 @@
                                 </textFieldCell>
                             </textField>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="JD2-zI-1r7" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="20" y="326" width="240" height="240"/>
+                                <rect key="frame" x="20" y="366" width="240" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="240" id="aIy-Vk-ZeK"/>
+                                    <constraint firstAttribute="height" constant="200" id="aIy-Vk-ZeK"/>
                                     <constraint firstAttribute="width" constant="240" id="hyg-n3-Yb5"/>
                                 </constraints>
                             </customView>
@@ -806,15 +806,36 @@
                                 </constraints>
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="4Qz-U9-6o1" customClass="ActivationIndicator" customModule="MyoTrainer" customModuleProvider="target">
-                                <rect key="frame" x="20" y="302" width="16" height="16"/>
+                                <rect key="frame" x="32" y="342" width="16" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="9eg-fL-cvM"/>
                                     <constraint firstAttribute="width" constant="16" id="Wnv-yh-EEo"/>
                                 </constraints>
                             </customView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vkJ-KB-P7o">
-                                <rect key="frame" x="42" y="301" width="107" height="17"/>
+                                <rect key="frame" x="54" y="341" width="107" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Activation Status" id="tLh-Hv-3yf">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XXR-YO-Jnb">
+                                <rect key="frame" x="14" y="293" width="112" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Lwi-j5-ilh"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Train" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="doF-2b-MEm">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xYK-p4-oD1">
+                                <rect key="frame" x="126" y="302" width="136" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="132" id="Qvm-pI-c61"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Train label" id="aVI-50-eBS">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -831,10 +852,12 @@
                             <constraint firstItem="Hsv-4j-s0Q" firstAttribute="leading" secondItem="yw9-Pd-FCt" secondAttribute="trailing" constant="8" id="ARE-dH-LKY"/>
                             <constraint firstItem="ypT-gC-2lf" firstAttribute="top" secondItem="09t-Xa-0gD" secondAttribute="bottom" constant="8" id="Amx-8r-HOk"/>
                             <constraint firstItem="YnK-AP-j4d" firstAttribute="leading" secondItem="JD2-zI-1r7" secondAttribute="trailing" constant="8" id="B06-tI-HwT"/>
+                            <constraint firstItem="xYK-p4-oD1" firstAttribute="leading" secondItem="XXR-YO-Jnb" secondAttribute="trailing" constant="8" id="BH9-Fw-BZN"/>
                             <constraint firstItem="K17-xz-Pbp" firstAttribute="top" secondItem="IYm-zp-udd" secondAttribute="bottom" constant="8" id="CGe-gl-eAI"/>
                             <constraint firstItem="34S-BU-ryT" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="Dcg-tR-mJB"/>
                             <constraint firstItem="Q1O-Jf-Ql1" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="FU8-qi-ad2"/>
-                            <constraint firstItem="4Qz-U9-6o1" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="KyX-zq-Ufm"/>
+                            <constraint firstItem="4Qz-U9-6o1" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="32" id="KyX-zq-Ufm"/>
+                            <constraint firstItem="XXR-YO-Jnb" firstAttribute="top" secondItem="vkJ-KB-P7o" secondAttribute="bottom" constant="20" id="LD5-If-n4Z"/>
                             <constraint firstItem="vkJ-KB-P7o" firstAttribute="top" secondItem="JD2-zI-1r7" secondAttribute="bottom" constant="8" id="Mi9-5I-6BP"/>
                             <constraint firstItem="IYm-zp-udd" firstAttribute="top" secondItem="ypT-gC-2lf" secondAttribute="bottom" constant="8" id="Nnt-jD-WkP"/>
                             <constraint firstItem="IYm-zp-udd" firstAttribute="leading" secondItem="8uC-LK-bKC" secondAttribute="trailing" constant="8" id="NyS-yh-QQ9"/>
@@ -848,7 +871,9 @@
                             <constraint firstItem="8uC-LK-bKC" firstAttribute="top" secondItem="Zde-wx-5QT" secondAttribute="bottom" constant="8" id="fmA-r4-1Eq"/>
                             <constraint firstItem="cxN-mV-Ozv" firstAttribute="leading" secondItem="JD2-zI-1r7" secondAttribute="trailing" constant="8" id="ic9-47-cHh"/>
                             <constraint firstItem="4Qz-U9-6o1" firstAttribute="top" secondItem="JD2-zI-1r7" secondAttribute="bottom" constant="8" id="jMQ-2f-9Bm"/>
+                            <constraint firstItem="xYK-p4-oD1" firstAttribute="top" secondItem="vkJ-KB-P7o" secondAttribute="bottom" constant="22" id="jVH-Z3-mOH"/>
                             <constraint firstItem="09t-Xa-0gD" firstAttribute="leading" secondItem="YnK-AP-j4d" secondAttribute="trailing" constant="8" id="kWH-VM-wR2"/>
+                            <constraint firstItem="XXR-YO-Jnb" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="nzS-G0-GFE"/>
                             <constraint firstAttribute="trailing" secondItem="EbQ-wt-HiB" secondAttribute="trailing" constant="20" id="tx4-3f-RKA"/>
                             <constraint firstItem="Q1O-Jf-Ql1" firstAttribute="top" secondItem="34S-BU-ryT" secondAttribute="bottom" constant="8" id="tyD-k0-kKC"/>
                             <constraint firstItem="ypT-gC-2lf" firstAttribute="leading" secondItem="Zde-wx-5QT" secondAttribute="trailing" constant="8" id="v5o-7X-Q8s"/>
@@ -876,7 +901,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="852"/>
+            <point key="canvasLocation" x="75" y="941"/>
         </scene>
     </scenes>
 </document>

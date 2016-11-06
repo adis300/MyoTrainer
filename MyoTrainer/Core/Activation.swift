@@ -20,7 +20,7 @@ class Activation{
 
     static let NN_1L_THRESHOLD = 0.4 // *1
     
-    static let QUADRATIC_FILTERED_THRESHOLD:Int32 = 17 * 17
+    static let QUADRATIC_FILTERED_THRESHOLD:Int32 =  280 // ~= 17^2
     
     static func activateSimple(emgData:[Int32]) -> Bool{
         
@@ -45,6 +45,7 @@ class Activation{
     
     static func quadraticFilteredActivation(filteredEmg: [Int32]) -> Bool{
         let activationValue = filteredEmg.map{$0/Filter.WINDOW_SIZE_INT32}.reduce(0,{$0 + $1*$1})
+        // print(activationValue)
         return activationValue > QUADRATIC_FILTERED_THRESHOLD
     }
 }

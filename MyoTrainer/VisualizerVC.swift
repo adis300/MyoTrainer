@@ -19,6 +19,7 @@ class VisualizerVC: NSViewController, MyoDelegate{
     
     let lineSignalSkipper = 10
     var lineSignalSkipperCounter = 0
+    var activated = false
     
     @IBOutlet weak var startButton: NSButton!
     @IBOutlet weak var statusLabel: NSTextField!
@@ -151,7 +152,8 @@ class VisualizerVC: NSViewController, MyoDelegate{
     }
     
     func plotQuadraticFilteredActivatorState(filtered:[Int32]){
-        if(Activation.quadraticFilteredActivation(filteredEmg: filtered)){
+        activated = Activation.quadraticFilteredActivation(filteredEmg: filtered)
+        if activated {
             activationIndicator.activate()
         }else{
             activationIndicator.deactivate()
@@ -159,7 +161,8 @@ class VisualizerVC: NSViewController, MyoDelegate{
     }
     
     func plotNNLogisticActivatorState(filtered:[Int32]){
-        if(Activation.logisticStepForFilteredEmg(filteredEmg: filtered)){
+        activated = Activation.logisticStepForFilteredEmg(filteredEmg: filtered)
+        if activated {
             activationIndicator.activate()
         }else{
             activationIndicator.deactivate()
@@ -167,7 +170,8 @@ class VisualizerVC: NSViewController, MyoDelegate{
     }
     
     func plotSimpleActivatorState(emgData:[Int32]){
-        if(Activation.activateSimple(emgData: emgData)){
+        activated = Activation.activateSimple(emgData: emgData)
+        if activated {
             activationIndicator.activate()
         }else{
             activationIndicator.deactivate()
