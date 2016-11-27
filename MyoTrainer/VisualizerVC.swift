@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  MyoTrainer
 //
-//  Created by Innovation on 10/27/16.
+//  Created by Disi A on 10/27/16.
 //  Copyright © 2016 Votebin. All rights reserved.
 //
 
@@ -10,7 +10,9 @@ import Cocoa
 import Charts
 
 class VisualizerVC: NSViewController, MyoDelegate{
-
+    
+    var trainerVC: TrainerVC?
+    
     var myo:Myo?
     var fileOutputStream:OutputStream?
     
@@ -202,8 +204,24 @@ class VisualizerVC: NSViewController, MyoDelegate{
         plotEmgMagnitudeIndicator(emgData: arrayEmgData)
         plotEmgSignalLineChart(emgData: arrayEmgData)
         // plotSimpleActivatorState(emgData: arrayEmgData)
-        // plotNNLogisticActivatorState(filtered: Filter.filtered)
+        //plotNNLogisticActivatorState(filtered: Filter.filtered)
         plotQuadraticFilteredActivatorState(filtered: Filter.filtered)
+    }
+    
+    @IBAction func trainClick(_ sender: AnyObject) {
+        // Start training interface
+        trainerVC = storyboard?.instantiateController(withIdentifier: "TrainerVC") as! TrainerVC
+
+        trainerVC?.visualizer = self
+        view.window?.contentViewController = trainerVC
+        /*
+        if let window = view.window { // where window.styleMask & NSFullScreenWindowMask > 0
+            // adjust view size to current window
+
+        }
+        */
+        
+        // presentViewController(trainerVC, animator: self)
     }
     
     

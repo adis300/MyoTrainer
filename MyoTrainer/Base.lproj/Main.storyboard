@@ -679,6 +679,35 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
+        <!--TrainerVC-->
+        <scene sceneID="VFX-DX-zey">
+            <objects>
+                <viewController storyboardIdentifier="TrainerVC" id="cfo-Ks-tot" customClass="TrainerVC" customModule="MyoTrainer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="bxq-dT-Rni">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="640"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Zt0-et-BK1">
+                                <rect key="frame" x="20" y="592" width="70" height="32"/>
+                                <buttonCell key="cell" type="push" title="Back" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="frh-3p-rAf">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="backClick:" target="cfo-Ks-tot" id="mnh-Fe-n8A"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Zt0-et-BK1" firstAttribute="top" secondItem="bxq-dT-Rni" secondAttribute="top" constant="20" id="GPh-Oj-4ZD"/>
+                            <constraint firstItem="Zt0-et-BK1" firstAttribute="leading" secondItem="bxq-dT-Rni" secondAttribute="leading" constant="26" id="KWj-Wv-Phv"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="yU8-q4-QLb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1122" y="25"/>
+        </scene>
         <!--VisualizerVC-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
@@ -829,18 +858,10 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="trainClick:" target="XfG-lQ-9wD" id="bri-L9-a29"/>
+                                </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xYK-p4-oD1">
-                                <rect key="frame" x="126" y="302" width="136" height="17"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="132" id="Qvm-pI-c61"/>
-                                </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Train label" id="aVI-50-eBS">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Hsv-4j-s0Q" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="19" id="0Xf-mH-uU6"/>
@@ -852,7 +873,6 @@
                             <constraint firstItem="Hsv-4j-s0Q" firstAttribute="leading" secondItem="yw9-Pd-FCt" secondAttribute="trailing" constant="8" id="ARE-dH-LKY"/>
                             <constraint firstItem="ypT-gC-2lf" firstAttribute="top" secondItem="09t-Xa-0gD" secondAttribute="bottom" constant="8" id="Amx-8r-HOk"/>
                             <constraint firstItem="YnK-AP-j4d" firstAttribute="leading" secondItem="JD2-zI-1r7" secondAttribute="trailing" constant="8" id="B06-tI-HwT"/>
-                            <constraint firstItem="xYK-p4-oD1" firstAttribute="leading" secondItem="XXR-YO-Jnb" secondAttribute="trailing" constant="8" id="BH9-Fw-BZN"/>
                             <constraint firstItem="K17-xz-Pbp" firstAttribute="top" secondItem="IYm-zp-udd" secondAttribute="bottom" constant="8" id="CGe-gl-eAI"/>
                             <constraint firstItem="34S-BU-ryT" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="Dcg-tR-mJB"/>
                             <constraint firstItem="Q1O-Jf-Ql1" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="FU8-qi-ad2"/>
@@ -871,7 +891,6 @@
                             <constraint firstItem="8uC-LK-bKC" firstAttribute="top" secondItem="Zde-wx-5QT" secondAttribute="bottom" constant="8" id="fmA-r4-1Eq"/>
                             <constraint firstItem="cxN-mV-Ozv" firstAttribute="leading" secondItem="JD2-zI-1r7" secondAttribute="trailing" constant="8" id="ic9-47-cHh"/>
                             <constraint firstItem="4Qz-U9-6o1" firstAttribute="top" secondItem="JD2-zI-1r7" secondAttribute="bottom" constant="8" id="jMQ-2f-9Bm"/>
-                            <constraint firstItem="xYK-p4-oD1" firstAttribute="top" secondItem="vkJ-KB-P7o" secondAttribute="bottom" constant="22" id="jVH-Z3-mOH"/>
                             <constraint firstItem="09t-Xa-0gD" firstAttribute="leading" secondItem="YnK-AP-j4d" secondAttribute="trailing" constant="8" id="kWH-VM-wR2"/>
                             <constraint firstItem="XXR-YO-Jnb" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="nzS-G0-GFE"/>
                             <constraint firstAttribute="trailing" secondItem="EbQ-wt-HiB" secondAttribute="trailing" constant="20" id="tx4-3f-RKA"/>
@@ -901,7 +920,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="941"/>
+            <point key="canvasLocation" x="1122" y="718"/>
         </scene>
     </scenes>
 </document>

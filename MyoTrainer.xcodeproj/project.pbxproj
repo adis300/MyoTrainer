@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E03478F11DEB723C00F27EBF /* TrainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03478F01DEB723C00F27EBF /* TrainerVC.swift */; };
 		E08902D91DC2D42200C1A190 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08902D81DC2D42200C1A190 /* AppDelegate.swift */; };
 		E08902DB1DC2D42200C1A190 /* VisualizerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08902DA1DC2D42200C1A190 /* VisualizerVC.swift */; };
 		E08902DD1DC2D42200C1A190 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E08902DC1DC2D42200C1A190 /* Assets.xcassets */; };
@@ -71,6 +72,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E03478F01DEB723C00F27EBF /* TrainerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainerVC.swift; sourceTree = "<group>"; };
 		E08902D51DC2D42200C1A190 /* MyoTrainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyoTrainer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E08902D81DC2D42200C1A190 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E08902DA1DC2D42200C1A190 /* VisualizerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizerVC.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				E08902E71DC2D43B00C1A190 /* Frameworks */,
 				E08902D81DC2D42200C1A190 /* AppDelegate.swift */,
 				E08902DA1DC2D42200C1A190 /* VisualizerVC.swift */,
+				E03478F01DEB723C00F27EBF /* TrainerVC.swift */,
 				E08902DC1DC2D42200C1A190 /* Assets.xcassets */,
 				E08902DE1DC2D42200C1A190 /* Main.storyboard */,
 				E08902E11DC2D42200C1A190 /* Info.plist */,
@@ -307,6 +310,7 @@
 			files = (
 				E09DAF2E1DC4F2BE00D1023F /* ExtArray.swift in Sources */,
 				E08902F11DC2D60000C1A190 /* OCMyo.mm in Sources */,
+				E03478F11DEB723C00F27EBF /* TrainerVC.swift in Sources */,
 				E0BA16D71DC580DF00F56394 /* DataFactory.swift in Sources */,
 				E09DAF331DC5413500D1023F /* ActivationIndicator.swift in Sources */,
 				E08903051DC3143C00C1A190 /* AppTheme.swift in Sources */,
