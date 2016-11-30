@@ -697,12 +697,120 @@
                                     <action selector="backClick:" target="cfo-Ks-tot" id="mnh-Fe-n8A"/>
                                 </connections>
                             </button>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4xr-O4-CgL">
+                                <rect key="frame" x="26" y="569" width="500" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="BNY-Dr-U8q"/>
+                                    <constraint firstAttribute="width" constant="500" id="Gmj-WN-l3N"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="/Users/innovation/Documents/emulator/training.csv" placeholderString="Path" drawsBackground="YES" id="Sl7-kc-TtP">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8EF-FJ-HFN">
+                                <rect key="frame" x="26" y="544" width="121" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Myo not connected" id="GrP-Zr-pBv">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="uxy-Cg-W9S" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="26" y="136" width="240" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="FY8-w5-9Ad"/>
+                                    <constraint firstAttribute="width" constant="240" id="aUe-jN-2eb"/>
+                                </constraints>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="8GN-w0-OBX" customClass="ActivationIndicator" customModule="MyoTrainer" customModuleProvider="target">
+                                <rect key="frame" x="38" y="112" width="16" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="eiV-Ny-SLy"/>
+                                    <constraint firstAttribute="width" constant="16" id="zkD-fB-E3b"/>
+                                </constraints>
+                            </customView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vVW-rK-cBy">
+                                <rect key="frame" x="60" y="111" width="113" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Is recording data?" id="7yy-w1-yFY">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CRp-yr-hh9">
+                                <rect key="frame" x="532" y="571" width="125" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Training instruction:" id="H4g-qz-WDC">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WeY-Ge-g88">
+                                <rect key="frame" x="534" y="546" width="407" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Please click on &quot;start training&quot; on top right to begin collecting data" id="6J4-ps-MzC">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="783-h4-liP">
+                                <rect key="frame" x="878" y="563" width="132" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="3rz-6E-X0B"/>
+                                    <constraint firstAttribute="width" constant="120" id="kda-9r-WdM"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Start training" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="naj-GO-dZu">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="startTrainingClick:" target="cfo-Ks-tot" id="7Kt-RP-ODE"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VwH-Y9-Wr4">
+                                <rect key="frame" x="803" y="564" width="69" height="32"/>
+                                <buttonCell key="cell" type="push" title="Stop" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IId-bg-ZwO">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="stopClick:" target="cfo-Ks-tot" id="UXJ-bx-RSN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="4xr-O4-CgL" firstAttribute="top" secondItem="Zt0-et-BK1" secondAttribute="bottom" constant="8" id="0Q4-HX-bVt"/>
+                            <constraint firstItem="vVW-rK-cBy" firstAttribute="top" secondItem="uxy-Cg-W9S" secondAttribute="bottom" constant="8" id="7pi-Te-B0a"/>
+                            <constraint firstItem="8EF-FJ-HFN" firstAttribute="leading" secondItem="bxq-dT-Rni" secondAttribute="leading" constant="28" id="Ati-BV-MuY"/>
+                            <constraint firstItem="uxy-Cg-W9S" firstAttribute="leading" secondItem="bxq-dT-Rni" secondAttribute="leading" constant="26" id="Dw2-MR-vFd"/>
+                            <constraint firstItem="4xr-O4-CgL" firstAttribute="leading" secondItem="bxq-dT-Rni" secondAttribute="leading" constant="26" id="DzZ-NX-CwC"/>
                             <constraint firstItem="Zt0-et-BK1" firstAttribute="top" secondItem="bxq-dT-Rni" secondAttribute="top" constant="20" id="GPh-Oj-4ZD"/>
+                            <constraint firstItem="CRp-yr-hh9" firstAttribute="top" secondItem="bxq-dT-Rni" secondAttribute="top" constant="52" id="HHK-Ma-RTi"/>
+                            <constraint firstItem="8EF-FJ-HFN" firstAttribute="top" secondItem="4xr-O4-CgL" secondAttribute="bottom" constant="8" id="KDq-R4-dw8"/>
                             <constraint firstItem="Zt0-et-BK1" firstAttribute="leading" secondItem="bxq-dT-Rni" secondAttribute="leading" constant="26" id="KWj-Wv-Phv"/>
+                            <constraint firstItem="8GN-w0-OBX" firstAttribute="leading" secondItem="bxq-dT-Rni" secondAttribute="leading" constant="38" id="LBl-Gb-4Ek"/>
+                            <constraint firstItem="8GN-w0-OBX" firstAttribute="top" secondItem="uxy-Cg-W9S" secondAttribute="bottom" constant="8" id="PrW-hG-8qQ"/>
+                            <constraint firstItem="uxy-Cg-W9S" firstAttribute="top" secondItem="8EF-FJ-HFN" secondAttribute="bottom" constant="8" id="Vrn-dt-EAz"/>
+                            <constraint firstItem="VwH-Y9-Wr4" firstAttribute="top" secondItem="bxq-dT-Rni" secondAttribute="top" constant="48" id="Z9l-39-JWr"/>
+                            <constraint firstItem="CRp-yr-hh9" firstAttribute="leading" secondItem="4xr-O4-CgL" secondAttribute="trailing" constant="8" id="bBc-GB-WWi"/>
+                            <constraint firstAttribute="trailing" secondItem="783-h4-liP" secondAttribute="trailing" constant="20" id="hXL-we-6Wv"/>
+                            <constraint firstItem="vVW-rK-cBy" firstAttribute="leading" secondItem="8GN-w0-OBX" secondAttribute="trailing" constant="8" id="iuM-1R-dSe"/>
+                            <constraint firstItem="783-h4-liP" firstAttribute="leading" secondItem="VwH-Y9-Wr4" secondAttribute="trailing" constant="18" id="sVW-eW-KtS"/>
+                            <constraint firstItem="783-h4-liP" firstAttribute="top" secondItem="bxq-dT-Rni" secondAttribute="top" constant="48" id="xWe-9Y-9oI"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activationIndicator" destination="8GN-w0-OBX" id="kDn-hr-x7z"/>
+                        <outlet property="barChart" destination="uxy-Cg-W9S" id="PgR-uj-VgP"/>
+                        <outlet property="barChartView" destination="uxy-Cg-W9S" id="HIN-ke-gdS"/>
+                        <outlet property="dataSavePath" destination="4xr-O4-CgL" id="9p3-FV-8K3"/>
+                        <outlet property="myoStatusLabel" destination="8EF-FJ-HFN" id="WsY-nu-fWV"/>
+                        <outlet property="startTrainingButton" destination="783-h4-liP" id="gby-L5-b3X"/>
+                        <outlet property="trainingInstruction" destination="WeY-Ge-g88" id="ORP-Zo-Sk6"/>
+                    </connections>
                 </viewController>
                 <customObject id="yU8-q4-QLb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

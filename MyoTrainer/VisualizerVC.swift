@@ -210,7 +210,7 @@ class VisualizerVC: NSViewController, MyoDelegate{
     
     @IBAction func trainClick(_ sender: AnyObject) {
         // Start training interface
-        trainerVC = storyboard?.instantiateController(withIdentifier: "TrainerVC") as! TrainerVC
+        trainerVC = storyboard?.instantiateController(withIdentifier: "TrainerVC") as? TrainerVC
 
         trainerVC?.visualizer = self
         view.window?.contentViewController = trainerVC
