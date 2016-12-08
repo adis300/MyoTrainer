@@ -10,6 +10,8 @@ import Cocoa
 
 class ActivationIndicator : NSView{
     
+    var activated = false
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setBackgroundAndBorder()
@@ -33,11 +35,17 @@ class ActivationIndicator : NSView{
     }
     
     func activate(){
-        layer?.backgroundColor = AppTheme.ACTIVATION_COLORS[1].cgColor
+        if(!activated) {
+            activated = true
+            layer?.backgroundColor = AppTheme.ACTIVATION_COLORS[1].cgColor
+        }
     }
     
     func deactivate(){
-        layer?.backgroundColor = AppTheme.ACTIVATION_COLORS[0].cgColor
+        if(activated){
+            activated = false
+            layer?.backgroundColor = AppTheme.ACTIVATION_COLORS[0].cgColor
+        }
     }
     
 }

@@ -20,6 +20,7 @@ class TrainerVC: NSViewController, MyoDelegate {
     @IBOutlet weak var trainingStatusLabel: NSTextField!
 
     var activated = false
+    var waiting = false
     
     var trainingLabelCount = [0,0,0,0]// Fist, stretch, point, click
     
@@ -116,6 +117,9 @@ class TrainerVC: NSViewController, MyoDelegate {
         if activated {
             activationIndicator.activate()
         }else{
+            if(activated != activationIndicator.activated){
+                resumeRecording()
+            }
             activationIndicator.deactivate()
         }
     }
@@ -140,25 +144,38 @@ class TrainerVC: NSViewController, MyoDelegate {
         plotQuadraticFilteredActivatorState(filtered: Filter.filtered)
         
         // After applying filter
-        if(activated){
+        if(activated && !waiting){
             trainingLabelCount[currentTrainingLabel] += 1
             
             trainingCountLabel.stringValue = "\(trainingLabelCount[currentTrainingLabel])/\(trainingDataSize)"
+            writeEmgToFile(emgData: arrayEmgData, timestamp: timestamp)
             
             if(trainingLabelCount[currentTrainingLabel] >= trainingDataSize) {
-                currentTrainingLabel += 1
-                if(currentTrainingLabel == trainingLabelCount.count){
-                    stopRecording()
-                    return
-                }else{
-                    trainingInstruction.stringValue = trainingLabelNames[currentTrainingLabel]
-                }
+                pauseRecording()
             }
-            writeEmgToFile(emgData: arrayEmgData, timestamp: timestamp)
         }
 
     }
     
+    func pauseRecording(){
+        
+        currentTrainingLabel += 1
+        if(currentTrainingLabel == trainingLabelCount.count){
+            stopRecording()
+            return
+        }else{
+            waiting = true
+            trainingInstruction.stringValue = "Please relax ....."
+            //trainingInstruction.stringValue = trainingLabelNames[currentTrainingLabel]
+        }
+    }
+    
+    func resumeRecording(){
+        waiting = false
+        trainingInstruction.stringValue = trainingLabelNames[currentTrainingLabel]
+
+    }
+
     @IBAction func startTrainingClick(_ sender: AnyObject) {
         // TODO: Implement parse CSV
     }
