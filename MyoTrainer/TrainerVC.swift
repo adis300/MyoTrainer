@@ -57,7 +57,7 @@ class TrainerVC: NSViewController, MyoDelegate {
         
         // Read teh file path
         if(dataSavePath.stringValue.characters.count > 0){
-            fileOutputStream = OutputStream(toFileAtPath: dataSavePath.stringValue, append: true)
+            fileOutputStream = OutputStream(toFileAtPath: dataSavePath.stringValue, append: false)
             fileOutputStream?.open()
         }
         myo?.connectWaiting(3000)
