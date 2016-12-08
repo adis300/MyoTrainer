@@ -1,0 +1,3 @@
+[submodule "SwiftLearn"]
+	path = SwiftLearn
+	url = https://github.com/adis300/Swift-Learn

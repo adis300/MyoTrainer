@@ -12,11 +12,12 @@ import Charts
 class TrainerVC: NSViewController, MyoDelegate {
     
     @IBOutlet weak var barChart: BarChartView!
-    let skipper = 10
+    let skipper = 30
     var skipperCounter = 0
     var myo:Myo?
     var fileOutputStream:OutputStream?
     
+    @IBOutlet weak var trainingStatusLabel: NSTextField!
 
     var activated = false
     
@@ -24,7 +25,10 @@ class TrainerVC: NSViewController, MyoDelegate {
     
     var trainingLabelNames = ["Fist","Stretch","Point","Click"].map{"Please make gesture:" + $0}
 
-    var trainingDataSize = 10000
+    var trainingDataSize = 2500
+    
+    @IBOutlet weak var trainingCountLabel: NSTextField!
+    
     var currentTrainingLabel = 0 // Fist
     
     @IBOutlet weak var activationIndicator: ActivationIndicator!
@@ -32,7 +36,7 @@ class TrainerVC: NSViewController, MyoDelegate {
     @IBOutlet weak var trainingInstruction: NSTextField!
     @IBOutlet weak var myoStatusLabel: NSTextField!
 
-    @IBOutlet weak var startTrainingButton: NSButton!
+    @IBOutlet weak var startRecordingButton: NSButton!
 
     @IBOutlet weak var dataSavePath: NSTextField!
     var visualizer: NSViewController?
@@ -46,8 +50,8 @@ class TrainerVC: NSViewController, MyoDelegate {
         view.window?.contentViewController = visualizer
     }
     
-    @IBAction func startTrainingClick(_ sender: AnyObject) {
-        myo = Myo.init(appIdentifier: "com.votebin.brainco", updateTime: 50)  // Blocking UI update every 50ms
+    @IBAction func startRecordingClick(_ sender: AnyObject) {
+        myo = Myo.init(appIdentifier: "com.votebin.brainco", updateTime: 100)  // Blocking UI update every 50ms
         myo?.delegate = self
         
         // Read teh file path
@@ -62,10 +66,11 @@ class TrainerVC: NSViewController, MyoDelegate {
     }
     
     @IBAction func stopClick(_ sender: AnyObject) {
-        stopTraining()
+        stopRecording()
     }
     
     func setUpVisulization(){
+        trainingCountLabel.stringValue = "\(0)/\(trainingDataSize)"
         
         // Magnitude bar chart implementation
         emgMagnitudeDataSet.colors = [AppTheme.BAR_COLORS[0]]
@@ -118,12 +123,12 @@ class TrainerVC: NSViewController, MyoDelegate {
     // Myo delegate methods
     func myo(onConnect myo: Myo!, firmwareVersion firmware: String!, timestamp: UInt64) {
         myoStatusLabel.stringValue = "Training started"
-        startTrainingButton.isEnabled = false
+        startRecordingButton.isEnabled = false
     }
     
     func myo(onDisconnect myo: Myo!, timestamp: UInt64) {
         myoStatusLabel.stringValue = "Training stopped"
-        startTrainingButton.isEnabled = true
+        startRecordingButton.isEnabled = true
     }
     
     func myo(_ myo: Myo!, onEmgData emgData: UnsafeMutablePointer<Int32>!, timestamp: UInt64) {
@@ -137,10 +142,13 @@ class TrainerVC: NSViewController, MyoDelegate {
         // After applying filter
         if(activated){
             trainingLabelCount[currentTrainingLabel] += 1
+            
+            trainingCountLabel.stringValue = "\(trainingLabelCount[currentTrainingLabel])/\(trainingDataSize)"
+            
             if(trainingLabelCount[currentTrainingLabel] >= trainingDataSize) {
                 currentTrainingLabel += 1
                 if(currentTrainingLabel == trainingLabelCount.count){
-                    stopTraining()
+                    stopRecording()
                     return
                 }else{
                     trainingInstruction.stringValue = trainingLabelNames[currentTrainingLabel]
@@ -151,7 +159,12 @@ class TrainerVC: NSViewController, MyoDelegate {
 
     }
     
-    func stopTraining(){
+    @IBAction func startTrainingClick(_ sender: AnyObject) {
+        // TODO: Implement parse CSV
+    }
+    
+    func stopRecording(){
+        startRecordingButton.isEnabled = true
         activated = false
         currentTrainingLabel = 0
         trainingLabelCount = [0,0,0,0]

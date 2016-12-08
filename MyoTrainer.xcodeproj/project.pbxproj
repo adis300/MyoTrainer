@@ -23,6 +23,9 @@
 		E09DAF371DC565F300D1023F /* Activation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09DAF361DC565F300D1023F /* Activation.swift */; };
 		E09DAF391DC57A3C00D1023F /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09DAF381DC57A3C00D1023F /* Filter.swift */; };
 		E0BA16D71DC580DF00F56394 /* DataFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BA16D61DC580DF00F56394 /* DataFactory.swift */; };
+		E0D3F3631DF0E5240065CB8D /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D3F3621DF0E5240065CB8D /* DataParser.swift */; };
+		E0FE82241DF9586600B6A254 /* SwiftLearn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0FE82211DF9585C00B6A254 /* SwiftLearn.framework */; };
+		E0FE82251DF9586600B6A254 /* SwiftLearn.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E0FE82211DF9585C00B6A254 /* SwiftLearn.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,27 @@
 			remoteGlobalIDString = 06165F231D8110E600722320;
 			remoteInfo = Charts;
 		};
+		E0FE82201DF9585C00B6A254 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E0FE82191DF9585C00B6A254 /* SwiftLearn.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E0E87AC41DF3E96E00D58DF9;
+			remoteInfo = SwiftLearn;
+		};
+		E0FE82221DF9585C00B6A254 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E0FE82191DF9585C00B6A254 /* SwiftLearn.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E0E87ACD1DF3E96E00D58DF9;
+			remoteInfo = SwiftLearnTests;
+		};
+		E0FE82261DF9586600B6A254 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E0FE82191DF9585C00B6A254 /* SwiftLearn.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E0E87AC31DF3E96E00D58DF9;
+			remoteInfo = SwiftLearn;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -65,6 +89,7 @@
 			files = (
 				E08902EB1DC2D44500C1A190 /* myo.framework in Embed Frameworks */,
 				E08903001DC3131200C1A190 /* Charts.framework in Embed Frameworks */,
+				E0FE82251DF9586600B6A254 /* SwiftLearn.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,6 +115,8 @@
 		E09DAF361DC565F300D1023F /* Activation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activation.swift; sourceTree = "<group>"; };
 		E09DAF381DC57A3C00D1023F /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		E0BA16D61DC580DF00F56394 /* DataFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFactory.swift; sourceTree = "<group>"; };
+		E0D3F3621DF0E5240065CB8D /* DataParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
+		E0FE82191DF9585C00B6A254 /* SwiftLearn.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftLearn.xcodeproj; path = SwiftLearn/SwiftLearn.xcodeproj; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +126,7 @@
 			files = (
 				E08902EA1DC2D44500C1A190 /* myo.framework in Frameworks */,
 				E08902FF1DC3131200C1A190 /* Charts.framework in Frameworks */,
+				E0FE82241DF9586600B6A254 /* SwiftLearn.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +171,7 @@
 		E08902E71DC2D43B00C1A190 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E0FE82191DF9585C00B6A254 /* SwiftLearn.xcodeproj */,
 				E08902F31DC312B100C1A190 /* Charts.xcodeproj */,
 				E08902E81DC2D43B00C1A190 /* myo.framework */,
 			);
@@ -181,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				E09DAF2D1DC4F2BE00D1023F /* ExtArray.swift */,
+				E0D3F3621DF0E5240065CB8D /* DataParser.swift */,
 			);
 			path = Utilitiy;
 			sourceTree = "<group>";
@@ -203,6 +233,15 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		E0FE821A1DF9585C00B6A254 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E0FE82211DF9585C00B6A254 /* SwiftLearn.framework */,
+				E0FE82231DF9585C00B6A254 /* SwiftLearnTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -219,6 +258,7 @@
 			);
 			dependencies = (
 				E08903021DC3131200C1A190 /* PBXTargetDependency */,
+				E0FE82271DF9586600B6A254 /* PBXTargetDependency */,
 			);
 			name = MyoTrainer;
 			productName = MyoTrainer;
@@ -259,6 +299,10 @@
 					ProductGroup = E08902F41DC312B100C1A190 /* Products */;
 					ProjectRef = E08902F31DC312B100C1A190 /* Charts.xcodeproj */;
 				},
+				{
+					ProductGroup = E0FE821A1DF9585C00B6A254 /* Products */;
+					ProjectRef = E0FE82191DF9585C00B6A254 /* SwiftLearn.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -289,6 +333,20 @@
 			remoteRef = E08902FD1DC312B100C1A190 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		E0FE82211DF9585C00B6A254 /* SwiftLearn.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftLearn.framework;
+			remoteRef = E0FE82201DF9585C00B6A254 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E0FE82231DF9585C00B6A254 /* SwiftLearnTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SwiftLearnTests.xctest;
+			remoteRef = E0FE82221DF9585C00B6A254 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -310,6 +368,7 @@
 			files = (
 				E09DAF2E1DC4F2BE00D1023F /* ExtArray.swift in Sources */,
 				E08902F11DC2D60000C1A190 /* OCMyo.mm in Sources */,
+				E0D3F3631DF0E5240065CB8D /* DataParser.swift in Sources */,
 				E03478F11DEB723C00F27EBF /* TrainerVC.swift in Sources */,
 				E0BA16D71DC580DF00F56394 /* DataFactory.swift in Sources */,
 				E09DAF331DC5413500D1023F /* ActivationIndicator.swift in Sources */,
@@ -328,6 +387,11 @@
 			isa = PBXTargetDependency;
 			name = Charts;
 			targetProxy = E08903011DC3131200C1A190 /* PBXContainerItemProxy */;
+		};
+		E0FE82271DF9586600B6A254 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftLearn;
+			targetProxy = E0FE82261DF9586600B6A254 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

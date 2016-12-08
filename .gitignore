@@ -50,3 +50,6 @@ fastlane/screenshots
 
 #Code Injection
 iOSInjectionProject/
+
+# Manually injected dependency
+Swift-Learn/
