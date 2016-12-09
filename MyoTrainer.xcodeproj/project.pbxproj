@@ -18,7 +18,6 @@
 		E08902FF1DC3131200C1A190 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E08902FA1DC312B100C1A190 /* Charts.framework */; };
 		E08903001DC3131200C1A190 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E08902FA1DC312B100C1A190 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E08903051DC3143C00C1A190 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08903041DC3143C00C1A190 /* AppTheme.swift */; };
-		E09DAF2E1DC4F2BE00D1023F /* ExtArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09DAF2D1DC4F2BE00D1023F /* ExtArray.swift */; };
 		E09DAF331DC5413500D1023F /* ActivationIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09DAF321DC5413500D1023F /* ActivationIndicator.swift */; };
 		E09DAF371DC565F300D1023F /* Activation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09DAF361DC565F300D1023F /* Activation.swift */; };
 		E09DAF391DC57A3C00D1023F /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09DAF381DC57A3C00D1023F /* Filter.swift */; };
@@ -26,6 +25,8 @@
 		E0D3F3631DF0E5240065CB8D /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D3F3621DF0E5240065CB8D /* DataParser.swift */; };
 		E0FE82241DF9586600B6A254 /* SwiftLearn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0FE82211DF9585C00B6A254 /* SwiftLearn.framework */; };
 		E0FE82251DF9586600B6A254 /* SwiftLearn.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E0FE82211DF9585C00B6A254 /* SwiftLearn.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E0FE822E1DFA3BE900B6A254 /* MachineLearning.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FE822D1DFA3BE900B6A254 /* MachineLearning.swift */; };
+		E0FE82301DFA590600B6A254 /* StreamReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FE822F1DFA590600B6A254 /* StreamReader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,13 +111,14 @@
 		E08902F01DC2D60000C1A190 /* OCMyo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OCMyo.mm; sourceTree = "<group>"; };
 		E08902F31DC312B100C1A190 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = "<group>"; };
 		E08903041DC3143C00C1A190 /* AppTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
-		E09DAF2D1DC4F2BE00D1023F /* ExtArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtArray.swift; sourceTree = "<group>"; };
 		E09DAF321DC5413500D1023F /* ActivationIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivationIndicator.swift; sourceTree = "<group>"; };
 		E09DAF361DC565F300D1023F /* Activation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activation.swift; sourceTree = "<group>"; };
 		E09DAF381DC57A3C00D1023F /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		E0BA16D61DC580DF00F56394 /* DataFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFactory.swift; sourceTree = "<group>"; };
 		E0D3F3621DF0E5240065CB8D /* DataParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
 		E0FE82191DF9585C00B6A254 /* SwiftLearn.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftLearn.xcodeproj; path = SwiftLearn/SwiftLearn.xcodeproj; sourceTree = SOURCE_ROOT; };
+		E0FE822D1DFA3BE900B6A254 /* MachineLearning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MachineLearning.swift; sourceTree = "<group>"; };
+		E0FE822F1DFA590600B6A254 /* StreamReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamReader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,8 +211,9 @@
 		E09DAF2A1DC4F2AC00D1023F /* Utilitiy */ = {
 			isa = PBXGroup;
 			children = (
-				E09DAF2D1DC4F2BE00D1023F /* ExtArray.swift */,
 				E0D3F3621DF0E5240065CB8D /* DataParser.swift */,
+				E0FE822D1DFA3BE900B6A254 /* MachineLearning.swift */,
+				E0FE822F1DFA590600B6A254 /* StreamReader.swift */,
 			);
 			path = Utilitiy;
 			sourceTree = "<group>";
@@ -366,7 +369,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E09DAF2E1DC4F2BE00D1023F /* ExtArray.swift in Sources */,
+				E0FE82301DFA590600B6A254 /* StreamReader.swift in Sources */,
+				E0FE822E1DFA3BE900B6A254 /* MachineLearning.swift in Sources */,
 				E08902F11DC2D60000C1A190 /* OCMyo.mm in Sources */,
 				E0D3F3631DF0E5240065CB8D /* DataParser.swift in Sources */,
 				E03478F11DEB723C00F27EBF /* TrainerVC.swift in Sources */,

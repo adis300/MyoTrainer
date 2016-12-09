@@ -18,6 +18,7 @@ class Filter{
     
     static var filtered:[Int32] = [0,0,0,0,0,0,0,0]
     
+    static var decisionCollection = [-1,-1,-1,-1,-1,-1,-1,-1]
     
     static func initializeFilter(){
         for _ in 0..<8{
@@ -37,6 +38,29 @@ class Filter{
         }
         signalCounter += 1
     }
+    
+    static var decisionCounter = 0
+    
+    static func recordDecision(outputLabel : Int){
+        let decisionPos = decisionCounter % decisionCollection.count
+        decisionCollection[decisionPos] = outputLabel
+        decisionCounter += 1
+        
+    }
+    
+    static func makeDecision() -> Int{
+        var frequency: [Int:Int] = [:]
+        
+        for des in decisionCollection {
+            frequency[des] = (frequency[des] ?? 0) + 1
+        }
+        
+        let descending = frequency.sorted { $0.1 > $1.1 }
+        
+        return descending.first!.0
+    }
+    
+
     
     /*
     static func filter(emgData:[Int32]){

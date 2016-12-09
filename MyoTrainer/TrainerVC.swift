@@ -8,12 +8,16 @@
 
 import Cocoa
 import Charts
+import SwiftLearn
 
 class TrainerVC: NSViewController, MyoDelegate {
     
     @IBOutlet weak var barChart: BarChartView!
     let skipper = 30
     var skipperCounter = 0
+    var testSkipper = 10
+    var testSkipperCounter = 0
+
     var myo:Myo?
     var fileOutputStream:OutputStream?
     
@@ -21,12 +25,15 @@ class TrainerVC: NSViewController, MyoDelegate {
 
     var activated = false
     var waiting = false
+    static var isTestingNetwork = false
     
     var trainingLabelCount = [0,0,0,0]// Fist, stretch, point, click
     
-    var trainingLabelNames = ["Fist","Stretch","Point","Click"].map{"Please make gesture:" + $0}
 
-    var trainingDataSize = 2500
+    static var gestureLabelNames = ["Fist","Stretch","Point","Click"]
+    var trainingLabelNames = gestureLabelNames.map{"Please make gesture:" + $0}
+    
+    var trainingDataSize = 3000
     
     @IBOutlet weak var trainingCountLabel: NSTextField!
     
@@ -39,9 +46,13 @@ class TrainerVC: NSViewController, MyoDelegate {
 
     @IBOutlet weak var startRecordingButton: NSButton!
 
+    @IBOutlet weak var dataTrainingPath: NSTextField!
     @IBOutlet weak var dataSavePath: NSTextField!
     var visualizer: NSViewController?
 
+    @IBOutlet weak var networkSavePath: NSTextField!
+    @IBOutlet weak var gestureLabel: NSTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpVisulization()
@@ -117,8 +128,10 @@ class TrainerVC: NSViewController, MyoDelegate {
         if activated {
             activationIndicator.activate()
         }else{
-            if(activated != activationIndicator.activated){
-                resumeRecording()
+            if !TrainerVC.isTestingNetwork{
+                if(activated != activationIndicator.activated){
+                    resumeRecording()
+                }
             }
             activationIndicator.deactivate()
         }
@@ -143,17 +156,48 @@ class TrainerVC: NSViewController, MyoDelegate {
         plotEmgMagnitudeIndicator(emgData: arrayEmgData)
         plotQuadraticFilteredActivatorState(filtered: Filter.filtered)
         
-        // After applying filter
-        if(activated && !waiting){
-            trainingLabelCount[currentTrainingLabel] += 1
+        if TrainerVC.isTestingNetwork{
             
-            trainingCountLabel.stringValue = "\(trainingLabelCount[currentTrainingLabel])/\(trainingDataSize)"
-            writeEmgToFile(emgData: arrayEmgData, timestamp: timestamp)
+            // TODO: Implement a 10 frame delay
+            if activated{
+                var inputs:[Double] = arrayEmgData.map{Double($0)/128}
+                inputs.append(contentsOf: Filter.filtered.map{Double($0)/Filter.WINDOW_SIZE_DOUBLE/128})
+
+                let outputs = network.feedforward(Vector(inputs))
+                let (_, labelInd) = max(outputs)
+                
+                Filter.recordDecision(outputLabel: labelInd)
+                
+                testSkipperCounter += 1
+                if testSkipperCounter == testSkipper{
+                    let finalLabel = Filter.makeDecision()
+                    if finalLabel >= 0 {
+                        gestureLabel.stringValue = TrainerVC.gestureLabelNames[labelInd]
+                    }else{
+                        gestureLabel.stringValue = "Relaxed"
+                    }
+                    testSkipperCounter = 0
+                }
+                
+            }else{
+                gestureLabel.stringValue = "Relaxed"
+            }
             
-            if(trainingLabelCount[currentTrainingLabel] >= trainingDataSize) {
-                pauseRecording()
+
+        }else{
+            // After applying filter
+            if(activated && !waiting){
+                trainingLabelCount[currentTrainingLabel] += 1
+                
+                trainingCountLabel.stringValue = "\(trainingLabelCount[currentTrainingLabel])/\(trainingDataSize)"
+                writeEmgToFile(emgData: arrayEmgData, timestamp: timestamp)
+                
+                if(trainingLabelCount[currentTrainingLabel] >= trainingDataSize) {
+                    pauseRecording()
+                }
             }
         }
+        
 
     }
     
@@ -172,12 +216,33 @@ class TrainerVC: NSViewController, MyoDelegate {
     
     func resumeRecording(){
         waiting = false
+        TrainerVC.isTestingNetwork = false
         trainingInstruction.stringValue = trainingLabelNames[currentTrainingLabel]
 
     }
 
     @IBAction func startTrainingClick(_ sender: AnyObject) {
-        // TODO: Implement parse CSV
+        MachineLearning.train(path: dataTrainingPath.stringValue)
+    }
+    @IBAction func saveNetworkClick(_ sender: AnyObject) {
+        let success = MachineLearning.saveNetwork(path: networkSavePath.stringValue)
+        if success {
+            gestureLabel.stringValue = "Network saved"
+        }
+    }
+    @IBAction func loadNetworkAndListenClick(_ sender: AnyObject) {
+        let success = MachineLearning.loadNetwork(path: networkSavePath.stringValue)
+        if success {
+            gestureLabel.stringValue = "Network loaded"
+            TrainerVC.isTestingNetwork = true
+            
+            myo = Myo.init(appIdentifier: "com.votebin.brainco", updateTime: 100)  // Blocking UI update every 50ms
+            myo?.delegate = self
+            myo?.connectWaiting(3000)
+            myo?.startUpdate();
+        }else{
+            print("Failed to load network")
+        }
     }
     
     func stopRecording(){

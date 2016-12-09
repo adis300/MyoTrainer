@@ -785,6 +785,16 @@
                                     <action selector="startTrainingClick:" target="cfo-Ks-tot" id="n9s-k8-CJ8"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="V1f-eN-dRd">
+                                <rect key="frame" x="878" y="358" width="132" height="32"/>
+                                <buttonCell key="cell" type="push" title="Save network" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="csj-13-JCV">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="saveNetworkClick:" target="cfo-Ks-tot" id="kZ2-vK-IMC"/>
+                                </connections>
+                            </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VwH-Y9-Wr4">
                                 <rect key="frame" x="803" y="564" width="69" height="32"/>
                                 <buttonCell key="cell" type="push" title="Stop" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IId-bg-ZwO">
@@ -812,7 +822,18 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="500" id="g4f-5l-Vr7"/>
                                 </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="/Users/innovation/Documents/emulator/network.csv" placeholderString="Path" drawsBackground="YES" id="rwj-gC-l0f">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="/Users/innovation/Documents/emulator/training.csv" placeholderString="Path" drawsBackground="YES" id="rwj-gC-l0f">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="c1G-wb-4yf">
+                                <rect key="frame" x="274" y="364" width="500" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="500" id="E5J-1H-Wn9"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="/Users/innovation/Documents/emulator/network.json" placeholderString="Path" drawsBackground="YES" id="S1c-nU-A5z">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -840,15 +861,42 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vih-7i-k6W">
+                                <rect key="frame" x="268" y="328" width="212" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="bvd-qp-8bT"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Load network and listen" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZqF-GI-kAT">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="loadNetworkAndListenClick:" target="cfo-Ks-tot" id="ZgV-eh-XWa"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="38K-nH-DoK">
+                                <rect key="frame" x="284" y="135" width="504" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="9Yp-0c-2aU"/>
+                                    <constraint firstAttribute="width" constant="500" id="h89-GF-Zb4"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Not listening" id="cxS-nm-AeX">
+                                    <font key="font" metaFont="system" size="50"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="4xr-O4-CgL" firstAttribute="top" secondItem="Zt0-et-BK1" secondAttribute="bottom" constant="8" id="0Q4-HX-bVt"/>
                             <constraint firstItem="iUk-M7-Mje" firstAttribute="leading" secondItem="uxy-Cg-W9S" secondAttribute="trailing" constant="8" id="4Pi-n3-kBg"/>
                             <constraint firstItem="vVW-rK-cBy" firstAttribute="top" secondItem="uxy-Cg-W9S" secondAttribute="bottom" constant="8" id="7pi-Te-B0a"/>
+                            <constraint firstItem="vih-7i-k6W" firstAttribute="top" secondItem="c1G-wb-4yf" secondAttribute="bottom" constant="8" id="8Vw-5m-5ar"/>
                             <constraint firstItem="8EF-FJ-HFN" firstAttribute="leading" secondItem="bxq-dT-Rni" secondAttribute="leading" constant="28" id="Ati-BV-MuY"/>
                             <constraint firstAttribute="trailing" secondItem="WeY-Ge-g88" secondAttribute="trailing" constant="20" id="CdU-cN-2Bn"/>
                             <constraint firstItem="uxy-Cg-W9S" firstAttribute="leading" secondItem="bxq-dT-Rni" secondAttribute="leading" constant="26" id="Dw2-MR-vFd"/>
                             <constraint firstItem="4xr-O4-CgL" firstAttribute="leading" secondItem="bxq-dT-Rni" secondAttribute="leading" constant="26" id="DzZ-NX-CwC"/>
+                            <constraint firstItem="vih-7i-k6W" firstAttribute="leading" secondItem="uxy-Cg-W9S" secondAttribute="trailing" constant="8" id="EOQ-kO-X3x"/>
                             <constraint firstItem="VwH-Y9-Wr4" firstAttribute="leading" secondItem="4W8-21-cH9" secondAttribute="trailing" constant="10" id="Fxu-Sf-kBB"/>
                             <constraint firstItem="Zt0-et-BK1" firstAttribute="top" secondItem="bxq-dT-Rni" secondAttribute="top" constant="20" id="GPh-Oj-4ZD"/>
                             <constraint firstItem="CRp-yr-hh9" firstAttribute="top" secondItem="bxq-dT-Rni" secondAttribute="top" constant="52" id="HHK-Ma-RTi"/>
@@ -866,11 +914,18 @@
                             <constraint firstItem="4W8-21-cH9" firstAttribute="top" secondItem="bxq-dT-Rni" secondAttribute="top" constant="51" id="dMd-WT-U5J"/>
                             <constraint firstItem="qfx-jS-Y6P" firstAttribute="leading" secondItem="uxy-Cg-W9S" secondAttribute="trailing" constant="8" id="eoi-dp-e1F"/>
                             <constraint firstAttribute="trailing" secondItem="783-h4-liP" secondAttribute="trailing" constant="20" id="hXL-we-6Wv"/>
+                            <constraint firstItem="V1f-eN-dRd" firstAttribute="leading" secondItem="c1G-wb-4yf" secondAttribute="trailing" constant="110" id="isY-jm-eVc"/>
                             <constraint firstItem="vVW-rK-cBy" firstAttribute="leading" secondItem="8GN-w0-OBX" secondAttribute="trailing" constant="8" id="iuM-1R-dSe"/>
+                            <constraint firstItem="38K-nH-DoK" firstAttribute="leading" secondItem="uxy-Cg-W9S" secondAttribute="trailing" constant="20" id="m4h-iI-hcC"/>
+                            <constraint firstAttribute="trailing" secondItem="V1f-eN-dRd" secondAttribute="trailing" constant="20" id="nDW-w7-6OL"/>
                             <constraint firstItem="78i-Kh-OwF" firstAttribute="top" secondItem="qfx-jS-Y6P" secondAttribute="bottom" constant="8" id="rdN-ju-1Mf"/>
                             <constraint firstItem="783-h4-liP" firstAttribute="leading" secondItem="VwH-Y9-Wr4" secondAttribute="trailing" constant="18" id="sVW-eW-KtS"/>
                             <constraint firstItem="78i-Kh-OwF" firstAttribute="leading" secondItem="uxy-Cg-W9S" secondAttribute="trailing" constant="8" id="tQd-9R-pRe"/>
+                            <constraint firstItem="38K-nH-DoK" firstAttribute="top" secondItem="vih-7i-k6W" secondAttribute="bottom" constant="40" id="u0N-5Q-6y1"/>
+                            <constraint firstItem="V1f-eN-dRd" firstAttribute="top" secondItem="dgY-c8-X27" secondAttribute="bottom" constant="58" id="ukG-MN-4Lk"/>
                             <constraint firstItem="WeY-Ge-g88" firstAttribute="leading" secondItem="uxy-Cg-W9S" secondAttribute="trailing" constant="8" id="vf4-z6-dvw"/>
+                            <constraint firstItem="c1G-wb-4yf" firstAttribute="top" secondItem="78i-Kh-OwF" secondAttribute="bottom" constant="8" id="vml-sy-GQb"/>
+                            <constraint firstItem="c1G-wb-4yf" firstAttribute="leading" secondItem="uxy-Cg-W9S" secondAttribute="trailing" constant="8" id="vph-IY-YnS"/>
                             <constraint firstItem="iUk-M7-Mje" firstAttribute="leading" secondItem="uxy-Cg-W9S" secondAttribute="trailing" constant="8" id="xV0-ze-mT0"/>
                             <constraint firstItem="783-h4-liP" firstAttribute="top" secondItem="bxq-dT-Rni" secondAttribute="top" constant="48" id="xWe-9Y-9oI"/>
                             <constraint firstItem="iUk-M7-Mje" firstAttribute="top" secondItem="WeY-Ge-g88" secondAttribute="bottom" constant="10" id="y4l-VG-U9J"/>
@@ -881,7 +936,10 @@
                         <outlet property="barChart" destination="uxy-Cg-W9S" id="PgR-uj-VgP"/>
                         <outlet property="barChartView" destination="uxy-Cg-W9S" id="HIN-ke-gdS"/>
                         <outlet property="dataSavePath" destination="4xr-O4-CgL" id="9p3-FV-8K3"/>
+                        <outlet property="dataTrainingPath" destination="iUk-M7-Mje" id="Tch-MU-6CV"/>
+                        <outlet property="gestureLabel" destination="38K-nH-DoK" id="xRd-jn-aoJ"/>
                         <outlet property="myoStatusLabel" destination="8EF-FJ-HFN" id="WsY-nu-fWV"/>
+                        <outlet property="networkSavePath" destination="c1G-wb-4yf" id="9Xc-wL-lqx"/>
                         <outlet property="startRecordingButton" destination="783-h4-liP" id="6fu-FC-9dX"/>
                         <outlet property="trainingCountLabel" destination="4W8-21-cH9" id="WcL-q3-lJO"/>
                         <outlet property="trainingInstruction" destination="WeY-Ge-g88" id="ORP-Zo-Sk6"/>
